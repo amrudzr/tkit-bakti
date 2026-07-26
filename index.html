@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yayasan Pendidikan Bakti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C34EFD; /* Extracted purple color */
+            --primary-light: #d67bff;
+            --primary-dark: #a12ad9;
+            --secondary: #ffb800; /* Gold/yellow */
+            --secondary-light: #ffc933;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #ffffff;
+            --bg-gray: #f5f6fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: var(--primary);
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 184, 0, 0.4);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: #f6f8fd;
+            padding: 80px 0 160px;
+            position: relative;
+            color: var(--text-dark);
+            overflow: hidden;
+        }
+
+        .hero-bg-shapes {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-bg-shapes .shape {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.6;
+            border-radius: 50%;
+        }
+
+        .hero-bg-shapes .shape-1 {
+            top: -10%; left: -10%;
+            width: 500px; height: 500px;
+            background: rgba(225, 218, 255, 0.8);
+        }
+
+        .hero-bg-shapes .shape-2 {
+            top: 40%; right: -5%;
+            width: 400px; height: 400px;
+            background: rgba(210, 230, 255, 0.7);
+        }
+
+        .hero-bg-shapes .shape-3 {
+            bottom: -20%; left: 30%;
+            width: 600px; height: 300px;
+            background: rgba(253, 240, 255, 0.8);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1.1;
+        }
+
+        .hero-welcome {
+            font-family: 'Caveat', cursive, 'Georgia', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-weight: 500;
+            max-width: 90%;
+            line-height: 1.7;
+        }
+
+        .hero-buttons .btn-outline {
+            background-color: white !important;
+            color: var(--primary) !important;
+            border: none !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+            font-weight: 600;
+        }
+
+        .hero-buttons .btn-outline:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1) !important;
+            transform: translateY(-2px);
+        }
+        
+        .hero-buttons .btn-primary {
+            box-shadow: 0 6px 20px rgba(195, 78, 253, 0.3) !important;
+        }
+
+        .hero-image {
+            flex: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+            transform: scale(1.15); 
+        }
+
+        /* Sparkles */
+        .sparkle-icon {
+            position: absolute;
+            color: #FFD700;
+            animation: pulse-sparkle 2s infinite alternate;
+            z-index: 0;
+        }
+        .sparkle-icon.s1 { top: 10%; left: 10%; font-size: 2rem; color: #a29bfe; }
+        .sparkle-icon.s2 { top: 30%; right: 5%; font-size: 1.2rem; color: #ffeaa7; }
+        .sparkle-icon.s3 { bottom: 20%; left: 0%; font-size: 1.5rem; color: #81ecec; }
+        .sparkle-icon.s4 { top: 15%; right: 40%; font-size: 1.8rem; color: #a29bfe; }
+        
+        @keyframes pulse-sparkle {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* Floating card */
+        .hero-floating-card {
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+            background: white;
+            border-radius: 16px;
+            padding: 15px 25px 15px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            animation: float-up-down 4s ease-in-out infinite;
+            z-index: 10;
+        }
+        @keyframes float-up-down {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .hero-floating-card .icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+        .hero-floating-card .info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+        .hero-floating-card .info strong {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+        .hero-floating-card .info span {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            z-index: 5;
+        }
+
+        .hero-wave svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* --- Stats/Features Row --- */
+        .stats-section {
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 80px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(74, 33, 175, 0.15);
+        }
+
+        .stat-icon {
+            width: 65px;
+            height: 65px;
+            background: #f4f0fd;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            color: var(--text-gray);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* --- Tentang Kami --- */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--bg-gray);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .about-images img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-images img:nth-child(2) {
+            margin-top: 40px;
+        }
+
+        .about-text {
+            flex: 1.1;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* --- Cabang TK --- */
+        .branches-section {
+            padding: 100px 0;
+            background-color: var(--bg-gray);
+        }
+
+        .branches-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            align-items: stretch;
+        }
+
+        .branches-map {
+            flex: 1.2;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .branches-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+            display: block;
+        }
+        
+        .branches-map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 800;
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .branches-list {
+            flex: 1;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        /* Custom Scrollbar for branches list */
+        .branches-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .branches-list::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 10px;
+        }
+        .branches-list::-webkit-scrollbar-thumb {
+            background: #c1c1c1; 
+            border-radius: 10px;
+        }
+        .branches-list::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light); 
+        }
+
+        .branch-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eaeaea;
+            transition: all 0.3s;
+        }
+        
+        .branch-item:last-child {
+            border-bottom: none;
+        }
+
+        .branch-item:hover {
+            background: var(--bg-gray);
+            border-radius: 8px;
+        }
+
+        .branch-icon {
+            width: 40px;
+            height: 40px;
+            background: #f4f0fd;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .branch-info {
+            flex: 1;
+        }
+
+        .branch-info h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .branch-info p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        .branch-btn {
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            transition: transform 0.2s;
+        }
+        
+        .branch-btn:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 992px) {
+            .branches-container {
+                flex-direction: column;
+            }
+            .branches-map {
+                height: 300px;
+            }
+            .branches-list {
+                max-height: 400px;
+            }
+        }
+
+        /* --- Program Unggulan --- */
+        .programs-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-top: 10px;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .program-card {
+            background: var(--bg-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid #eaeaea;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+
+        .program-img-wrapper {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .program-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .program-content {
+            padding: 30px;
+        }
+
+        .program-content h4 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .program-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- Prestasi Update --- */
+        .achievements-section {
+            padding: 100px 0;
+            background-color: var(--bg-gray);
+        }
+
+        .achievements-layout {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .achievements-overview {
+            flex: 1;
+        }
+
+        .achievements-overview h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+
+        .achievements-overview p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .achievement-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .a-stat {
+            background: var(--white);
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .a-stat h4 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .a-stat span {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        .achievements-list-container {
+            flex: 1.2;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        /* Custom Scrollbar */
+        .achievements-list-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .achievements-list-container::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 10px;
+        }
+        .achievements-list-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1; 
+            border-radius: 10px;
+        }
+        .achievements-list-container::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light); 
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .achievements-list li {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px dashed #ddd;
+            transition: all 0.3s;
+        }
+
+        .achievements-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .achievements-list li:first-child {
+            padding-top: 0;
+        }
+
+        .achievements-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .ach-year {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 900;
+            padding: 10px 15px;
+            border-radius: 8px;
+            height: fit-content;
+            font-size: 1.1rem;
+        }
+
+        .ach-content h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .ach-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* --- Agenda --- */
+        .agenda-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .agenda-card {
+            display: flex;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .agenda-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .agenda-date {
+            background: var(--primary);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            min-width: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .agenda-date .day {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .agenda-date .month-year {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .agenda-details {
+            padding: 30px;
+            flex: 1;
+        }
+
+        .agenda-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: rgba(255, 184, 0, 0.15);
+            color: var(--secondary);
+        }
+
+        .agenda-details h4 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .agenda-details p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .agenda-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+        
+        .agenda-meta i {
+            color: var(--secondary);
+            margin-right: 5px;
+        }
+
+        /* --- CTA / Banner --- */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            text-align: center;
+            color: var(--primary-dark);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Berita & Pengumuman --- */
+        .news-section {
+            padding: 100px 0;
+            background-color: var(--bg-gray);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .news-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-date {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-content h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .news-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .read-more i {
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover .read-more i {
+            transform: translateX(5px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-dark);
+            color: rgba(255,255,255,0.7);
+            padding: 80px 0 30px;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr 1fr 2fr 2.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .footer-socials a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .footer-socials a:hover {
+            background: var(--secondary);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-weight: 800;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-contact li {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            font-weight: 500;
+        }
+        
+        .footer-contact i {
+            margin-top: 4px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .footer-map img {
+            width: 100%;
+            border-radius: 12px;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-map img:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .footer-bottom-links a {
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 50px 30px;
+            }
+            .footer-col:nth-child(4), .footer-col:nth-child(5) {
+                grid-column: span 1;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content, .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .programs-grid, .news-grid, .agenda-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-text {
+                margin-top: 30px;
+            }
+            .hero-image {
+                margin-top: 40px;
+            }
+            .hero-badge {
+                margin: 0 auto 20px;
+            }
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .achievements-layout {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .programs-grid, .news-grid, .achievements-grid, .agenda-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .about-images {
+                grid-template-columns: 1fr;
+            }
+            .about-images img:nth-child(2) {
+                margin-top: 15px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo YPBWI"> YP BAKTI
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Profil Yayasan</a></li>
+                <li><a href="#">TK Islam Bakti</a></li>
+                <li><a href="#">Berita & Agenda</a></li>
+                <li><a href="#">PPDB</a></li>
+                <li><a href="#">Galeri</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">Portal Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text" data-aos="fade-right">
+                <div class="hero-welcome">Selamat Datang di</div>
+                <h1>YAYASAN<br><span>PENDIDIKAN BAKTI</span></h1>
+                <p>Membina dan mengembangkan pendidikan anak usia dini Islam yang berkualitas dalam lingkungan yang aman, nyaman dan penuh kasih sayang.</p>
+                
+                <div class="hero-buttons" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="#" class="btn btn-primary">Jelajahi TK Kami <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#" class="btn btn-outline">Profil Yayasan <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+                <i class="fa-solid fa-star sparkle-icon s1"></i>
+                <i class="fa-solid fa-star sparkle-icon s2"></i>
+                <i class="fa-solid fa-star sparkle-icon s3"></i>
+                <i class="fa-solid fa-star sparkle-icon s4"></i>
+                
+                <img src="assets/hero_kids_nobg.png" alt="Siswa TK Islam Bakti">
+                
+                <div class="hero-floating-card">
+                    <div class="icon">
+                        <img src="assets/logo.png" alt="Logo" style="width:100%;height:100%;object-fit:contain;">
+                    </div>
+                    <div class="info">
+                        <strong>16 TK Islam Bakti</strong>
+                        <span>Tersebar di<br>Kota Surakarta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path fill="#f5f6fa" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon"><i class="fa-solid fa-school"></i></div>
+                    <h3>16</h3>
+                    <p>Cabang TK Tersebar</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3>100+</h3>
+                    <p>Guru Berdedikasi</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon"><i class="fa-solid fa-children"></i></div>
+                    <h3>2000+</h3>
+                    <p>Siswa Aktif</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+                    <h3>30+</h3>
+                    <p>Tahun Pengalaman</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section class="about-section">
+        <div class="container about-content">
+            <div class="about-images" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Anak Belajar">
+                <img src="https://images.unsplash.com/photo-1544256718-3bcf237f3974?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Kegiatan Bermain">
+            </div>
+            <div class="about-text" data-aos="fade-left">
+                <span class="section-tag">TENTANG KAMI</span>
+                <h2>Membentuk Karakter, Mencerahkan Masa Depan</h2>
+                <p>Yayasan Pendidikan Bakti berdedikasi penuh pada penyelenggaraan pendidikan taman kanak-kanak berbasis nilai-nilai Islam. Kami mengintegrasikan kurikulum nasional dengan pendidikan diniyah yang terstruktur.</p>
+                <p>Kami meyakini bahwa usia dini adalah masa *golden age* di mana pondasi iman, akhlak, dan kecerdasan terbentuk. Oleh karena itu, seluruh lingkungan sekolah di bawah naungan kami dirancang untuk ramah anak, inspiratif, dan religius.</p>
+                
+                <a href="#" class="btn btn-outline" style="margin-top: 15px;">Pelajari Sejarah Yayasan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cabang TK -->
+    <section class="branches-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">JARINGAN KAMI</span>
+                <h2>Lokasi 16 Cabang TK Islam Bakti</h2>
+                <p style="color: var(--text-gray); max-width: 600px; margin: 10px auto 0; font-size: 1.05rem;">Pilih cabang terdekat dari rumah Anda. Tersebar di berbagai kecamatan di Kota Surakarta untuk kemudahan akses pendidikan berkualitas.</p>
+            </div>
+            
+            <div class="branches-container">
+                <div class="branches-map" data-aos="fade-right">
+                    <!-- Ilustrasi Peta Kota -->
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Peta Persebaran TK Islam Bakti">
+                    <div class="branches-map-overlay">
+                        <i class="fa-solid fa-map-location-dot"></i> Peta Persebaran Kota Surakarta
+                    </div>
+                </div>
+                
+                <div class="branches-list" data-aos="fade-left">
+                    <div class="branch-item">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 1 Laweyan</h4>
+                            <p>Jl. Dr. Radjiman No. 123, Bumi, Laweyan</p>
+                        </div>
+                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                    </div>
+                    <div class="branch-item">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 2 Banjarsari</h4>
+                            <p>Jl. Monginsidi No. 45, Banjarsari</p>
+                        </div>
+                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                    </div>
+                    <div class="branch-item">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 3 Jebres</h4>
+                            <p>Jl. Ki Hajar Dewantara No. 12, Jebres</p>
+                        </div>
+                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                    </div>
+                    <div class="branch-item">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 4 Pasar Kliwon</h4>
+                            <p>Jl. Kapten Mulyadi No. 88, Pasar Kliwon</p>
+                        </div>
+                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                    </div>
+                    <div class="branch-item">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 5 Serengan</h4>
+                            <p>Jl. Veteran No. 55, Serengan</p>
+                        </div>
+                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                    </div>
+                    <div class="branch-item">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 6 Pajang</h4>
+                            <p>Jl. Slamet Riyadi No. 320, Pajang</p>
+                        </div>
+                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                    </div>
+                    <div class="branch-item">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 7 Manahan</h4>
+                            <p>Jl. Adi Sucipto No. 10, Manahan</p>
+                        </div>
+                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                    </div>
+                    <div class="branch-item">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 8 Mojosongo</h4>
+                            <p>Jl. Brigjen Katamso No. 44, Mojosongo</p>
+                        </div>
+                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Unggulan -->
+    <section class="programs-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">PROGRAM KAMI</span>
+                <h2>Pendidikan Menyeluruh untuk Anak</h2>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-img-wrapper">
+                        <img src="assets/kegiatan_3.jpg" alt="Tahfidz Al Quran">
+                    </div>
+                    <div class="program-content">
+                        <h4>Tahfidz Al-Quran Usia Dini</h4>
+                        <p>Pembiasaan dan metode menghafal juz 30 yang menyenangkan untuk menumbuhkan cinta Al-Quran sejak kecil.</p>
+                    </div>
+                </div>
+                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-img-wrapper">
+                        <img src="assets/kegiatan_2.jpg" alt="Pendidikan Karakter">
+                    </div>
+                    <div class="program-content">
+                        <h4>Pendidikan Karakter Islami</h4>
+                        <p>Penanaman akhlak mulia dan adab sehari-hari terintegrasi dalam setiap kegiatan belajar mengajar dan bermain.</p>
+                    </div>
+                </div>
+                <div class="program-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="program-img-wrapper">
+                        <img src="assets/kegiatan_1.jpg" alt="Motorik Kreativitas">
+                    </div>
+                    <div class="program-content">
+                        <h4>Pengembangan Kognitif & Motorik</h4>
+                        <p>Fasilitas lengkap untuk mengasah kecerdasan logika, seni, serta motorik halus dan kasar anak secara optimal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi -->
+    <section class="achievements-section">
+        <div class="container">
+            <div class="achievements-layout">
+                
+                <!-- Kiri: Overview -->
+                <div class="achievements-overview" data-aos="fade-right">
+                    <span class="section-tag">PRESTASI</span>
+                    <h2>Jejak Prestasi Anak Didik Kami</h2>
+                    <p>Selama bertahun-tahun berkarya, Yayasan Pendidikan Bakti telah menorehkan puluhan prestasi membanggakan baik di tingkat kecamatan maupun kota. Ini adalah bukti nyata dedikasi kami dalam mencetak generasi unggul.</p>
+                    
+                    <div class="achievement-stats">
+                        <div class="a-stat">
+                            <h4>50+</h4>
+                            <span>Penghargaan Kota</span>
+                        </div>
+                        <div class="a-stat">
+                            <h4>120+</h4>
+                            <span>Piala Kategori Anak</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kanan: List -->
+                <div class="achievements-list-container" data-aos="fade-left">
+                    <ul class="achievements-list">
+                        <li>
+                            <div class="ach-year">2025</div>
+                            <div class="ach-content">
+                                <h4>Juara 1 Lomba Hafalan Surat Pendek</h4>
+                                <p>Tingkat TK se-Kota Surakarta (Kategori Putra & Putri)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ach-year">2024</div>
+                            <div class="ach-content">
+                                <h4>Juara Umum Porseni TK</h4>
+                                <p>Tingkat Kecamatan Laweyan & Banjarsari</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ach-year">2024</div>
+                            <div class="ach-content">
+                                <h4>Penghargaan Sekolah Ramah Anak</h4>
+                                <p>Dianugerahkan oleh Dinas Pendidikan Kota Surakarta</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ach-year">2023</div>
+                            <div class="ach-content">
+                                <h4>Juara 2 Lomba Mewarnai & Menggambar</h4>
+                                <p>Festival Seni Anak Sholeh Tingkat Provinsi</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ach-year">2023</div>
+                            <div class="ach-content">
+                                <h4>Juara Harapan 1 Lomba Drumband Cilik</h4>
+                                <p>Piala Walikota Surakarta</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Agenda Mendatang -->
+    <section class="agenda-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">AGENDA MENDATANG</span>
+                <h2>Kalender Kegiatan Terdekat</h2>
+                <p style="color: var(--text-gray); max-width: 600px; margin: 10px auto 0; font-size: 1.05rem;">Jangan lewatkan acara dan kegiatan penting yang akan segera diselenggarakan di lingkungan Yayasan Pendidikan Bakti.</p>
+            </div>
+            
+            <div class="agenda-grid">
+                <!-- Agenda Item 1 -->
+                <div class="agenda-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agenda-date">
+                        <span class="day">15</span>
+                        <span class="month-year">Agu 2026</span>
+                    </div>
+                    <div class="agenda-details">
+                        <span class="agenda-tag">Perlombaan</span>
+                        <h4>Lomba Mewarnai Kemerdekaan</h4>
+                        <p>Lomba mewarnai khusus anak TK dan pra-sekolah dalam rangka menyambut Hari Kemerdekaan Republik Indonesia.</p>
+                        <div class="agenda-meta">
+                            <span><i class="fa-regular fa-clock"></i> 08:00 - Selesai</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Aula Utama Yayasan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agenda Item 2 -->
+                <div class="agenda-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="agenda-date">
+                        <span class="day">28</span>
+                        <span class="month-year">Agu 2026</span>
+                    </div>
+                    <div class="agenda-details">
+                        <span class="agenda-tag">Parenting</span>
+                        <h4>Seminar Parenting Islami</h4>
+                        <p>Seminar untuk orang tua murid bertema "Mendidik Anak Generasi Alpha dengan Akhlakul Karimah".</p>
+                        <div class="agenda-meta">
+                            <span><i class="fa-regular fa-clock"></i> 09:00 - 11:30</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Masjid Yayasan Bakti</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agenda Item 3 -->
+                <div class="agenda-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="agenda-date">
+                        <span class="day">10</span>
+                        <span class="month-year">Sep 2026</span>
+                    </div>
+                    <div class="agenda-details">
+                        <span class="agenda-tag">Kunjungan</span>
+                        <h4 >Kunjungan Edukasi Pemadam Kebakaran</h4>
+                        <p>Field trip ke markas pemadam kebakaran Kota Surakarta untuk pengenalan profesi sejak dini.</p>
+                        <div class="agenda-meta">
+                            <span><i class="fa-regular fa-clock"></i> 07:30 - 12:00</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Dinas Damkar Surakarta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agenda Item 4 -->
+                <div class="agenda-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="agenda-date">
+                        <span class="day">22</span>
+                        <span class="month-year">Sep 2026</span>
+                    </div>
+                    <div class="agenda-details">
+                        <span class="agenda-tag">Akademik</span>
+                        <h4>Pembagian Rapor Bayangan</h4>
+                        <p>Penyerahan laporan perkembangan belajar anak (Rapor Bayangan) tengah semester ganjil kepada orang tua.</p>
+                        <div class="agenda-meta">
+                            <span><i class="fa-regular fa-clock"></i> 08:00 - 14:00</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Kelas Masing-masing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner CTA -->
+    <section class="cta-section" data-aos="zoom-in">
+        <div class="container">
+            <h2>Penerimaan Peserta Didik Baru (PPDB) Telah Dibuka!</h2>
+            <p>Mari bergabung bersama keluarga besar Yayasan Pendidikan Bakti dan berikan pendidikan dasar terbaik yang berlandaskan nilai-nilai Islam untuk putra-putri Anda.</p>
+            <a href="#" class="btn btn-outline" style="border-color: var(--primary-dark); color: var(--primary-dark); padding: 14px 40px; font-size: 1.1rem;">Daftar Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Berita & Pengumuman -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">INFORMASI TERKINI</span>
+                <h2>Berita & Pengumuman Terbaru</h2>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lomba Anak" class="news-img">
+                    <div class="news-content">
+                        <span class="news-date"><i class="fa-regular fa-calendar"></i> 20 Juli 2026</span>
+                        <h4>Lomba Mewarnai Tingkat TK se-Yayasan Bakti</h4>
+                        <p>Dalam rangka menyambut hari jadi, yayasan mengadakan festival kreativitas anak yang akan diikuti oleh 16 cabang TK Islam Bakti.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1542810634-71277d95dc82?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Seminar Guru" class="news-img">
+                    <div class="news-content">
+                        <span class="news-date"><i class="fa-regular fa-calendar"></i> 15 Juli 2026</span>
+                        <h4>Pelatihan Pedagogi Inklusif untuk Guru TK</h4>
+                        <p>Yayasan Pendidikan Bakti terus meningkatkan kualitas tenaga pengajar melalui seminar rutin bulanan bertema psikologi anak.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="news-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kegiatan Amal" class="news-img">
+                    <div class="news-content">
+                        <span class="news-date"><i class="fa-regular fa-calendar"></i> 10 Juli 2026</span>
+                        <h4>Bakti Sosial Panti Asuhan Bersama Siswa</h4>
+                        <p>Program rutin mengajarkan rasa empati dan sedekah pada anak-anak usia dini yang dilaksanakan secara serentak.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand" data-aos="fade-up" data-aos-delay="0">
+                    <h3><i class="fa-solid fa-graduation-cap" style="color:var(--secondary); font-size: 1.5rem;"></i> YAYASAN PENDIDIKAN BAKTI</h3>
+                    <p>Membina dan mengembangkan pendidikan anak usia dini Islam di 16 TK Islam Bakti Kota Surakarta.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Menu -->
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Menu Utama</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Profil Yayasan</a></li>
+                        <li><a href="#">Cabang TK Islam Bakti</a></li>
+                        <li><a href="#">Berita & Pengumuman</a></li>
+                        <li><a href="#">Informasi PPDB</a></li>
+                        <li><a href="#">Galeri Kegiatan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Link Cepat -->
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Link Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Visi & Misi Yayasan</a></li>
+                        <li><a href="#">Struktur Pengurus</a></li>
+                        <li><a href="#">Portal Guru</a></li>
+                        <li><a href="#">Portal Orang Tua</a></li>
+                        <li><a href="#">Karir & Lowongan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak Kami -->
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Hubungi Kami</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Sekretariat YP Bakti<br>Jl. Slamet Riyadi No. 456<br>Surakarta, Jawa Tengah 57123</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>(0271) 1234-567<br>0812-3456-7890 (WA)</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>info@ypbakti-solo.or.id</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Temukan Kami -->
+                <div class="footer-col footer-map" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Lokasi Yayasan</h4>
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Map Location">
+                </div>
+            </div>
+
+            <div class="footer-bottom" data-aos="fade-in" data-aos-delay="500">
+                <p>&copy; 2026 Yayasan Pendidikan Bakti. Hak Cipta Dilindungi.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50,
+        });
+    </script>
+</body>
+</html>
