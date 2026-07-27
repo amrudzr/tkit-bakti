@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Yayasan - YPBWI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C34EFD;
+            --primary-light: #d67bff;
+            --primary-dark: #a12ad9;
+            --secondary: #ffb800;
+            --secondary-light: #ffc933;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #ffffff;
+            --bg-gray: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito', sans-serif; color: var(--text-dark); background-color: var(--bg-gray); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header { background-color: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 15px 0; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-weight: 900; font-size: 1.4rem; color: var(--primary); gap: 10px; }
+        .logo img { height: 40px; border-radius: 50%; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-weight: 700; transition: color 0.3s; color: var(--text-dark); }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero */
+        .page-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 90px 0 70px; text-align: center; position: relative; }
+        .page-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 15px; }
+        .page-hero p { font-size: 1.2rem; opacity: 0.95; max-width: 650px; margin: 0 auto; }
+
+        /* Sambutan Ketua */
+        .welcome-section { padding: 90px 0; background: var(--white); }
+        .welcome-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 50px; align-items: center; }
+        .welcome-img { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .welcome-img img { width: 100%; height: 450px; object-fit: cover; display: block; }
+        .welcome-badge { position: absolute; bottom: 20px; left: 20px; background: white; padding: 15px 25px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-left: 5px solid var(--secondary); }
+        .welcome-badge h4 { color: var(--primary-dark); font-weight: 800; font-size: 1.1rem; }
+        .welcome-badge p { font-size: 0.85rem; color: var(--text-gray); margin: 0; }
+
+        .welcome-content .section-tag { color: var(--primary); font-weight: 800; letter-spacing: 1px; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .welcome-content h2 { font-size: 2.2rem; color: var(--primary-dark); font-weight: 900; margin-bottom: 20px; line-height: 1.3; }
+        .welcome-content p { color: var(--text-gray); font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; }
+        .quote-box { background: var(--bg-gray); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 16px 16px 0; font-style: italic; color: var(--text-dark); margin-bottom: 25px; font-weight: 600; }
+
+        /* Visi Misi Section */
+        .vm-section { padding: 90px 0; background: var(--bg-gray); }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.3rem; color: var(--primary-dark); font-weight: 900; }
+        .section-title p { color: var(--text-gray); font-size: 1.1rem; max-width: 600px; margin: 10px auto 0; }
+
+        .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .vm-card { background: white; border-radius: 24px; padding: 45px; box-shadow: 0 15px 35px rgba(0,0,0,0.04); border: 1px solid rgba(195, 78, 253, 0.08); transition: transform 0.3s; position: relative; overflow: hidden; }
+        .vm-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(195, 78, 253, 0.1); }
+        .vm-icon { width: 70px; height: 70px; background: rgba(195, 78, 253, 0.1); color: var(--primary); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 25px; }
+        .vm-card h3 { font-size: 1.8rem; color: var(--primary-dark); font-weight: 900; margin-bottom: 15px; }
+        .vm-card p { color: var(--text-gray); font-size: 1.05rem; line-height: 1.8; }
+        
+        .misi-list { margin-top: 15px; display: flex; flex-direction: column; gap: 12px; }
+        .misi-item { display: flex; gap: 15px; align-items: flex-start; }
+        .misi-item i { color: var(--secondary); background: rgba(255, 184, 0, 0.15); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-top: 3px; flex-shrink: 0; }
+
+        /* Nilai Utama */
+        .values-section { padding: 90px 0; background: white; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
+        .value-card { padding: 35px 25px; background: var(--bg-gray); border-radius: 20px; text-align: center; transition: all 0.3s; border: 1px solid transparent; }
+        .value-card:hover { background: white; border-color: var(--primary-light); box-shadow: 0 15px 30px rgba(195, 78, 253, 0.1); transform: translateY(-5px); }
+        .value-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: inline-block; }
+        .value-card h4 { font-size: 1.3rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 10px; }
+        .value-card p { font-size: 0.95rem; color: var(--text-gray); }
+
+        /* Pengurus Section */
+        .team-section { padding: 90px 0; background: var(--bg-gray); }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 50px; }
+        .team-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; transition: all 0.3s; }
+        .team-card:hover { transform: translateY(-7px); box-shadow: 0 20px 40px rgba(195, 78, 253, 0.12); }
+        .team-img { height: 260px; width: 100%; overflow: hidden; position: relative; }
+        .team-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .team-card:hover .team-img img { transform: scale(1.05); }
+        .team-info { padding: 25px 20px; }
+        .team-info h4 { font-size: 1.25rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 5px; }
+        .team-role { color: var(--secondary); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; display: block; }
+        .team-info p { font-size: 0.9rem; color: var(--text-gray); }
+
+        /* Footer styling */
+        footer { background-color: var(--primary-dark); color: white; padding: 70px 0 20px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; }
+        .footer-brand p { opacity: 0.8; margin-bottom: 20px; font-size: 0.95rem; }
+        .footer-socials { display: flex; gap: 12px; }
+        .footer-socials a { width: 38px; height: 38px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; }
+        .footer-socials a:hover { background: var(--primary); }
+        .footer-col h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; color: var(--secondary); }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { opacity: 0.8; transition: 0.3s; font-weight: 600; }
+        .footer-links a:hover { opacity: 1; color: var(--secondary); padding-left: 5px; }
+        .footer-contact li { display: flex; gap: 12px; margin-bottom: 15px; opacity: 0.85; font-size: 0.95rem; }
+        .footer-contact i { color: var(--secondary); margin-top: 4px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; opacity: 0.7; font-size: 0.9rem; }
+
+        @media screen and (max-width: 900px) {
+            .welcome-grid { grid-template-columns: 1fr; }
+            .vm-grid { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Logo YPBWI"> YPBWI
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#beranda">Beranda</a></li>
+                <li><a href="index.html#profil">Profil Yayasan</a></li>
+                <li><a href="index.html#peta-persebaran">TK Islam Bakti</a></li>
+                <li><a href="index.html#berita">Berita & Agenda</a></li>
+                <li><a href="index.html#ppdb">PPDB</a></li>
+                <li><a href="index.html#galeri">Galeri</a></li>
+            </ul>
+            <!-- Login button removed -->
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Profil YPBWI</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Yayasan Pendidikan Bakti Wanita Islam - Dedikasi terbaik untuk pendidikan anak usia dini yang berkarakter Islami.</p>
+        </div>
+    </section>
+
+    <!-- Sambutan Ketua -->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="welcome-grid">
+                <div class="welcome-img" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Ketua YPBWI">
+                    <div class="welcome-badge">
+                        <h4>Hj. Siti Aminah, M.Pd.</h4>
+                        <p>Ketua Yayasan YPBWI</p>
+                    </div>
+                </div>
+                <div class="welcome-content" data-aos="fade-left">
+                    <span class="section-tag">SAMBUTAN KETUA YAYASAN</span>
+                    <h2>Membangun Pondasi Karakter Sejak Usia Dini</h2>
+                    <div class="quote-box">
+                        "Pendidikan usia dini bukanlah sekadar mengajar membaca dan berhitung, melainkan menanamkan benih akhlak, rasa ingin tahu, dan kebahagiaan belajar."
+                    </div>
+                    <p>Selamat datang di Yayasan Pendidikan Bakti Wanita Islam (YPBWI). Sejak awal berdiri, komitmen kami adalah memberikan pengasuhan dan pendidikan terbaik bagi anak-anak usia dini melalui 16 cabang TK Islam Bakti kami.</p>
+                    <p>Kami meyakini bahwa dengan perpaduan kurikulum nasional, pendidikan agama Islam yang kuat, dan lingkungan yang penuh kasih sayang, anak-anak akan tumbuh menjadi pribadi yang cerdas dan soleh/solehah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi & Misi -->
+    <section class="vm-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Visi & Misi Yayasan</h2>
+                <p>Panduan dan komitmen utama kami dalam mengelola pendidikan anak usia dini</p>
+            </div>
+            
+            <div class="vm-grid">
+                <!-- Visi -->
+                <div class="vm-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vm-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Visi Kami</h3>
+                    <p>"Menjadi lembaga pendidikan usia dini terdepan yang mengintegrasikan nilai-nilai keislaman, kecerdasan emosional, dan pengetahuan modern untuk melahirkan generasi penerus bangsa yang unggul, berakhlak mulia, dan berkarakter kuat."</p>
+                </div>
+
+                <!-- Misi -->
+                <div class="vm-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="vm-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Misi Kami</h3>
+                    <div class="misi-list">
+                        <div class="misi-item">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Menyelenggarakan pendidikan berkualitas dengan metode belajar sambil bermain yang Islami.</p>
+                        </div>
+                        <div class="misi-item">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Menanamkan adab, nilai moral, dan hafalan surat-surat pendek sejak dini.</p>
+                        </div>
+                        <div class="misi-item">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Meningkatkan kompetensi dan profesionalisme guru melalui pelatihan berkala.</p>
+                        </div>
+                        <div class="misi-item">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Menjalin kemitraan yang erat antara sekolah, orang tua, dan masyarakat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nilai Utama -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Nilai-Nilai Utama</h2>
+                <p>Prinsip dasar yang melandasi seluruh kegiatan belajar mengajar di TK Islam Bakti</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-kaaba"></i>
+                    <h4>Nilai Keislaman</h4>
+                    <p>Menerapkan ajaran Islam dan pembiasaan ibadah harian secara lembut dan menyenangkan.</p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-heart"></i>
+                    <h4>Akhlak & Adab</h4>
+                    <p>Mengutamakan penghormatan kepada orang tua, guru, dan sikap saling menyayangi sesama.</p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h4>Kreativitas</h4>
+                    <p>Mendorong keberanian anak dalam mengekspresikan ide, minat, dan bakat unik mereka.</p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h4>Integritas</h4>
+                    <p>Menjaga amanah orang tua murid dengan tata kelola sekolah yang jujur dan profesional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengurus Yayasan -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Struktur Pengurus Yayasan</h2>
+                <p>Tim profesional dan berdedikasi di balik pengelolaan YPBWI</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" alt="Ketua Yayasan">
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Ketua Yayasan</span>
+                        <h4>Hj. Siti Aminah, M.Pd.</h4>
+                        <p>Memimpin arah kebijakan dan pengembangan pendidikan yayasan.</p>
+                    </div>
+                </div>
+
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Sekretaris">
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Sekretaris</span>
+                        <h4>Dra. Hj. Nurul Hidayah</h4>
+                        <p>Mengelola administrasi dan tata usaha kelembagaan.</p>
+                    </div>
+                </div>
+
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=600&auto=format&fit=crop" alt="Bendahara">
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Bendahara</span>
+                        <h4>Hj. Rina Welandari, S.E.</h4>
+                        <p>Menangani pengelolaan keuangan dan transparansi anggaran.</p>
+                    </div>
+                </div>
+
+                <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?q=80&w=600&auto=format&fit=crop" alt="Kabid Pendidikan">
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Kabid Pendidikan</span>
+                        <h4>Hj. Fatimah Az-Zahra, M.Pd.</h4>
+                        <p>Mengawasi mutu kurikulum dan kegiatan belajar 16 cabang TK.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand" data-aos="fade-up" data-aos-delay="0">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <img src="assets/logo.png" alt="Logo YPBWI" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; background: white; padding: 2px;">
+                        <h3 style="margin-bottom: 0;">YPBWI</h3>
+                    </div>
+                    <p>Membina dan mengembangkan pendidikan anak usia dini Islam di 16 TK Islam Bakti Kota Surakarta.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Menu -->
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Menu Utama</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Profil Yayasan</a></li>
+                        <li><a href="#">Cabang TK Islam Bakti</a></li>
+                        <li><a href="#">Berita & Pengumuman</a></li>
+                        <li><a href="#">Informasi PPDB</a></li>
+                        <li><a href="#">Galeri Kegiatan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Link Cepat -->
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Link Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Visi & Misi Yayasan</a></li>
+                        <li><a href="#">Struktur Pengurus</a></li>
+                        <li><a href="#">Karir & Lowongan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak Kami -->
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Hubungi Kami</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Sekretariat YPBWI<br>Jl. Slamet Riyadi No. 456<br>Surakarta, Jawa Tengah 57123</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>(0271) 1234-567<br>0812-3456-7890 (WA)</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>info@ypbakti-solo.or.id</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Temukan Kami -->
+                <div class="footer-col footer-map" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Lokasi Yayasan</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.3387637119!2d110.74797686036128!3d-7.556200257008127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a16627ebc4d93%3A0x4990b76e2792d79d!2sSurakarta%2C%20Surakarta%20City%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" width="100%" height="150" style="border:0; border-radius: 12px; margin-top: 10px; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom" data-aos="fade-in" data-aos-delay="500">
+                <p>&copy; 2026 YPBWI. Hak Cipta Dilindungi.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

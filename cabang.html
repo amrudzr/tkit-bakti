@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabang TK Islam Bakti - YPBWI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C34EFD;
+            --primary-light: #d67bff;
+            --primary-dark: #a12ad9;
+            --secondary: #ffb800;
+            --secondary-light: #ffc933;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #ffffff;
+            --bg-gray: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito', sans-serif; color: var(--text-dark); background-color: var(--bg-gray); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header { background-color: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 15px 0; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-weight: 900; font-size: 1.4rem; color: var(--primary); gap: 10px; }
+        .logo img { height: 40px; border-radius: 50%; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-weight: 700; transition: color 0.3s; color: var(--text-dark); }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero */
+        .page-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 90px 0 70px; text-align: center; position: relative; }
+        .page-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 15px; }
+        .page-hero p { font-size: 1.2rem; opacity: 0.95; max-width: 650px; margin: 0 auto; }
+
+        /* Filter & Search Bar */
+        .filter-section { margin-top: -35px; position: relative; z-index: 20; }
+        .filter-box { background: white; border-radius: 20px; padding: 20px 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); display: flex; gap: 20px; align-items: center; border: 1px solid rgba(195, 78, 253, 0.1); }
+        .search-input-wrapper { flex: 1; display: flex; align-items: center; background: var(--bg-gray); padding: 12px 20px; border-radius: 12px; gap: 12px; border: 1px solid transparent; transition: all 0.3s; }
+        .search-input-wrapper:focus-within { border-color: var(--primary-light); background: white; box-shadow: 0 0 10px rgba(195, 78, 253, 0.15); }
+        .search-input-wrapper i { color: var(--primary); font-size: 1.1rem; }
+        .search-input-wrapper input { border: none; background: transparent; outline: none; width: 100%; font-family: inherit; font-size: 1rem; font-weight: 600; color: var(--text-dark); }
+
+        /* Cabang Grid */
+        .cabang-section { padding: 60px 0 100px; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { font-size: 2rem; color: var(--primary-dark); font-weight: 800; }
+        .section-header p { color: var(--text-gray); font-size: 1.05rem; }
+
+        .cabang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        
+        .cabang-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #eee; transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .cabang-card:hover { transform: translateY(-7px); box-shadow: 0 20px 40px rgba(195, 78, 253, 0.12); border-color: rgba(195, 78, 253, 0.3); }
+
+        .cabang-card-img { position: relative; height: 200px; width: 100%; overflow: hidden; }
+        .cabang-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .cabang-card:hover .cabang-card-img img { transform: scale(1.06); }
+        
+        .cabang-card-badge { position: absolute; top: 15px; right: 15px; background: var(--secondary); color: var(--primary-dark); font-weight: 800; font-size: 0.75rem; padding: 6px 14px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .cabang-card-body { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+        .cabang-card-body h3 { font-size: 1.35rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 8px; }
+        .divider { height: 3px; width: 45px; background: var(--secondary); margin-bottom: 18px; border-radius: 2px; }
+
+        .cabang-card-body p { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 10px; display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; }
+        .cabang-card-body p i { color: var(--primary); margin-top: 3px; font-size: 1rem; width: 16px; text-align: center; }
+
+        .cabang-card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: auto; padding-top: 20px; }
+        .btn-card { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 10px; border-radius: 12px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; }
+        .btn-card.primary { background: var(--primary); color: white; }
+        .btn-card.primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(195, 78, 253, 0.3); }
+        .btn-card.outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-card.outline:hover { background: var(--primary-light); color: white; border-color: var(--primary-light); }
+
+        /* Footer styling */
+        footer { background-color: var(--primary-dark); color: white; padding: 70px 0 20px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; }
+        .footer-brand p { opacity: 0.8; margin-bottom: 20px; font-size: 0.95rem; }
+        .footer-socials { display: flex; gap: 12px; }
+        .footer-socials a { width: 38px; height: 38px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; }
+        .footer-socials a:hover { background: var(--primary); }
+        .footer-col h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; color: var(--secondary); }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { opacity: 0.8; transition: 0.3s; font-weight: 600; }
+        .footer-links a:hover { opacity: 1; color: var(--secondary); padding-left: 5px; }
+        .footer-contact li { display: flex; gap: 12px; margin-bottom: 15px; opacity: 0.85; font-size: 0.95rem; }
+        .footer-contact i { color: var(--secondary); margin-top: 4px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; opacity: 0.7; font-size: 0.9rem; }
+
+        @media screen and (max-width: 768px) {
+            .page-hero h1 { font-size: 2rem; }
+            .filter-box { flex-direction: column; }
+            .cabang-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Standard mobile menu behavior */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Logo YPBWI"> YPBWI
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#beranda">Beranda</a></li>
+                <li><a href="index.html#profil">Profil Yayasan</a></li>
+                <li><a href="index.html#peta-persebaran">TK Islam Bakti</a></li>
+                <li><a href="index.html#berita">Berita & Agenda</a></li>
+                <li><a href="index.html#ppdb">PPDB</a></li>
+                <li><a href="index.html#galeri">Galeri</a></li>
+            </ul>
+            <!-- Login button removed -->
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Daftar Cabang TK Islam Bakti</h1>
+            <p data-aos="fade-up" data-aos-delay="100">16 Cabang TK unggulan yang tersebar di wilayah Surakarta, siap mendidik generasi Islam yang cerdas dan berakhlak mulia.</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="container">
+        <div class="filter-section">
+            <div class="filter-box" data-aos="fade-up" data-aos-delay="200">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Cari berdasarkan nama cabang atau alamat (contoh: Bakti 3)...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabang Section -->
+    <section class="cabang-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Lokasi Cabang Kami</h2>
+                <p>Temukan lokasi dan informasi kontak lengkap cabang TK Islam Bakti di bawah ini</p>
+            </div>
+
+            <div class="cabang-grid" id="cabangGrid">
+
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 1">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 1</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 1, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234501</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 2">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 2</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 2, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234502</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 3">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 3</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 3, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234503</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 4">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 4</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 4, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234504</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 5">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 5</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 5, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234505</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 6">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 6</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 6, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234506</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 7">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 7</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 7, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234507</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 8">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 8</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 8, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234508</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 9">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 9</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 9, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234509</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 10">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 10</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 10, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234510</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 11">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 11</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 11, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234511</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 12">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 12</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 12, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234512</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 13">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 13</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 13, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234513</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 14">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 14</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 14, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234514</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 15">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 15</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 15, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234515</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="cabang-card-img">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 16">
+                    <span class="cabang-card-badge">Akreditasi A</span>
+                </div>
+                <div class="cabang-card-body">
+                    <h3>TK Islam Bakti 16</h3>
+                    <div class="divider"></div>
+                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 16, Surakarta</p>
+                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234516</p>
+                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
+                    <div class="cabang-card-actions">
+                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand" data-aos="fade-up" data-aos-delay="0">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <img src="assets/logo.png" alt="Logo YPBWI" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; background: white; padding: 2px;">
+                        <h3 style="margin-bottom: 0;">YPBWI</h3>
+                    </div>
+                    <p>Membina dan mengembangkan pendidikan anak usia dini Islam di 16 TK Islam Bakti Kota Surakarta.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Menu -->
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Menu Utama</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Profil Yayasan</a></li>
+                        <li><a href="#">Cabang TK Islam Bakti</a></li>
+                        <li><a href="#">Berita & Pengumuman</a></li>
+                        <li><a href="#">Informasi PPDB</a></li>
+                        <li><a href="#">Galeri Kegiatan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Link Cepat -->
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Link Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Visi & Misi Yayasan</a></li>
+                        <li><a href="#">Struktur Pengurus</a></li>
+                        <li><a href="#">Karir & Lowongan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak Kami -->
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Hubungi Kami</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Sekretariat YPBWI<br>Jl. Slamet Riyadi No. 456<br>Surakarta, Jawa Tengah 57123</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>(0271) 1234-567<br>0812-3456-7890 (WA)</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>info@ypbakti-solo.or.id</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Temukan Kami -->
+                <div class="footer-col footer-map" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Lokasi Yayasan</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.3387637119!2d110.74797686036128!3d-7.556200257008127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a16627ebc4d93%3A0x4990b76e2792d79d!2sSurakarta%2C%20Surakarta%20City%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" width="100%" height="150" style="border:0; border-radius: 12px; margin-top: 10px; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom" data-aos="fade-in" data-aos-delay="500">
+                <p>&copy; 2026 YPBWI. Hak Cipta Dilindungi.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS & Search Logic -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const cards = document.querySelectorAll('.cabang-card');
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                
+                cards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const address = card.querySelector('.cabang-address').textContent.toLowerCase();
+                    
+                    if (title.includes(query) || address.includes(query)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
