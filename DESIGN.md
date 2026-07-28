@@ -7,10 +7,10 @@ Visual theme untuk aplikasi TKIT ini mengusung nuansa **"Friendly, Clean, dan Tr
 ## 2. Color Palette & Roles
 Palet warna didesain untuk ramah anak namun tetap terlihat kredibel bagi administrasi sekolah.
 
-*   **Soft Ocean Teal (#0D9488)**
-    *   *Fungsi:* Warna primer (Primary). Digunakan untuk *call-to-action* utama, *header*, *sidebar* aktif, dan elemen branding utama. Memberikan kesan menenangkan dan terpercaya.
-*   **Sunrise Tangerine (#F97316)**
-    *   *Fungsi:* Warna sekunder / aksen (Secondary). Digunakan untuk menarik perhatian pada notifikasi penting, *badges*, tombol aksi sekunder, dan ilustrasi ceria.
+*   **Deep Royal Purple (#342781)**
+    *   *Fungsi:* Warna primer (Primary). Digunakan untuk *call-to-action* utama, *header*, *sidebar* aktif, dan elemen branding utama YPBWI. Memberikan kesan elegan, islami, dan terpercaya.
+*   **Warm Gold (#FFB800)**
+    *   *Fungsi:* Warna sekunder / aksen (Secondary). Digunakan untuk menarik perhatian pada notifikasi penting, *badges*, tombol aksi utama/sekunder, dan aksen ceria.
 *   **Mint Success (#22C55E)**
     *   *Fungsi:* Warna status sukses. Digunakan untuk indikator kelulusan hafalan, status SPP Lunas, dan notifikasi check-in presensi yang berhasil.
 *   **Soft Slate Background (#F8FAFC)**

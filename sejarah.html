@@ -11,15 +11,17 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #C34EFD; /* Extracted purple color */
-            --primary-light: #d67bff;
-            --primary-dark: #a12ad9;
-            --secondary: #ffb800; /* Gold/yellow */
-            --secondary-light: #ffc933;
-            --text-dark: #333333;
-            --text-gray: #666666;
+            --primary: #342781;
+            --primary-light: #4E3E9F;
+            --primary-dark: #211856;
+            --primary-subtle: #F1EFFB;
+            --secondary: #FFB800; /* Gold/yellow */
+            --secondary-light: #FFC933;
+            --secondary-dark: #D99B00;
+            --text-dark: #1A1633;
+            --text-gray: #595570;
             --bg-light: #ffffff;
-            --bg-gray: #f5f6fa;
+            --bg-gray: #f6f5fc;
             --white: #ffffff;
         }
 
@@ -159,44 +161,11 @@
 
         /* --- Hero Section --- */
         .hero {
-            background-color: #f6f8fd;
-            padding: 80px 0 160px;
+            background-color: var(--bg-gray);
+            padding: 80px 0 140px;
             position: relative;
             color: var(--text-dark);
             overflow: hidden;
-        }
-
-        .hero-bg-shapes {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .hero-bg-shapes .shape {
-            position: absolute;
-            filter: blur(80px);
-            opacity: 0.6;
-            border-radius: 50%;
-        }
-
-        .hero-bg-shapes .shape-1 {
-            top: -10%; left: -10%;
-            width: 500px; height: 500px;
-            background: rgba(225, 218, 255, 0.8);
-        }
-
-        .hero-bg-shapes .shape-2 {
-            top: 40%; right: -5%;
-            width: 400px; height: 400px;
-            background: rgba(210, 230, 255, 0.7);
-        }
-
-        .hero-bg-shapes .shape-3 {
-            bottom: -20%; left: 30%;
-            width: 600px; height: 300px;
-            background: rgba(253, 240, 255, 0.8);
         }
 
         .hero-content {
@@ -245,73 +214,38 @@
         .hero-buttons .btn-outline {
             background-color: white !important;
             color: var(--primary) !important;
-            border: none !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+            border: 2px solid var(--primary-subtle) !important;
+            box-shadow: 0 4px 15px rgba(52, 39, 129, 0.06) !important;
             font-weight: 600;
         }
 
         .hero-buttons .btn-outline:hover {
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1) !important;
+            box-shadow: 0 6px 20px rgba(52, 39, 129, 0.12) !important;
+            border-color: var(--primary) !important;
             transform: translateY(-2px);
         }
         
         .hero-buttons .btn-primary {
-            box-shadow: 0 6px 20px rgba(195, 78, 253, 0.3) !important;
+            box-shadow: 0 6px 20px rgba(52, 39, 129, 0.25) !important;
         }
 
         .hero-image {
-            flex: 0.9;
+            flex: 1;
             position: relative;
             z-index: 1;
-        }
-
-        .hero-image-bg {
-            position: relative;
-            width: 90%;
-            margin: 0 auto;
-            aspect-ratio: 1 / 1;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            z-index: 1;
-            box-shadow: 0 20px 40px rgba(195, 78, 253, 0.3);
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
-            overflow: hidden;
-            animation: blob-float 8s ease-in-out infinite;
         }
 
-        @keyframes blob-float {
-            0% { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
-            50% { border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%; }
-            100% { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
-        }
-
-        .hero-image-bg img {
-            width: 145%;
-            max-width: 155%;
+        .hero-pure-img {
+            width: 100%;
+            max-width: 540px;
             height: auto;
-            position: relative;
-            z-index: 2;
-            margin-bottom: -45px;
+            display: block;
             object-fit: contain;
-        }
-
-        /* Sparkles */
-        .sparkle-icon {
-            position: absolute;
-            color: #FFD700;
-            animation: pulse-sparkle 2s infinite alternate;
-            z-index: 0;
-        }
-        .sparkle-icon.s1 { top: 10%; left: 10%; font-size: 2rem; color: #a29bfe; }
-        .sparkle-icon.s2 { top: 30%; right: 5%; font-size: 1.2rem; color: #ffeaa7; }
-        .sparkle-icon.s3 { bottom: 20%; left: 0%; font-size: 1.5rem; color: #81ecec; }
-        .sparkle-icon.s4 { top: 15%; right: 40%; font-size: 1.8rem; color: #a29bfe; }
-        
-        @keyframes pulse-sparkle {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 1; }
+            mask-image: linear-gradient(to right, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 95%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 95%);
         }
 
         /* Floating card */
@@ -1082,7 +1016,7 @@
         /* --- Footer --- */
         footer {
             background-color: var(--primary-dark);
-            color: rgba(255,255,255,0.7);
+            color: #DEDBF7;
             padding: 80px 0 30px;
             font-size: 0.95rem;
         }
@@ -1115,7 +1049,7 @@
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.12);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1142,6 +1076,7 @@
         }
 
         .footer-links a {
+            color: #DEDBF7;
             transition: color 0.3s;
             font-weight: 500;
         }
@@ -1151,6 +1086,7 @@
         }
 
         .footer-contact li {
+            color: #DEDBF7;
             margin-bottom: 20px;
             display: flex;
             gap: 15px;
@@ -1176,21 +1112,23 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.15);
             padding-top: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 500;
+            color: #DEDBF7;
         }
         
         .footer-bottom-links a {
+            color: #DEDBF7;
             margin-left: 20px;
             transition: color 0.3s;
         }
         
         .footer-bottom-links a:hover {
-            color: white;
+            color: var(--secondary);
         }
 
         /* Responsive */
@@ -1265,29 +1203,27 @@
     
     <style>
         .timeline-section { padding: 100px 0; background-color: var(--bg-gray); overflow: hidden; }
-        .timeline { position: relative; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; }
-        .timeline::after { content: ''; position: absolute; width: 2px; background: linear-gradient(to bottom, transparent, var(--primary), var(--primary), transparent); top: 0; bottom: 0; left: 50%; margin-left: -1px; border-radius: 1px;}
-        .timeline-container { padding: 20px 0; position: relative; width: 50%; }
-        .timeline-container.left { align-self: flex-start; padding-right: 50px; }
-        .timeline-container.right { align-self: flex-end; padding-left: 50px; }
-        .timeline-container::after { content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: var(--primary); top: 50px; border-radius: 50%; z-index: 1; box-shadow: 0 0 0 8px rgba(195, 78, 253, 0.15), 0 0 15px rgba(195, 78, 253, 0.5); }
-        .timeline-container.right::after { left: -8px; right: auto; }
-        .timeline-content { padding: 35px; background-color: var(--white); position: relative; border-radius: 24px; box-shadow: 0 15px 35px rgba(195, 78, 253, 0.05); transition: transform 0.3s ease; border: 1px solid rgba(195, 78, 253, 0.1); }
-        .timeline-content:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(195, 78, 253, 0.1); }
-        .timeline-content h3 { color: var(--primary-dark); font-size: 1.5rem; margin-bottom: 12px; font-weight: 800; }
-        .timeline-content p { color: var(--text-gray); font-size: 1.05rem; line-height: 1.7; }
-        .timeline-date { display: inline-block; padding: 6px 18px; background: var(--secondary-light); color: var(--primary-dark); font-weight: 800; border-radius: 50px; margin-bottom: 20px; font-size: 0.85rem; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(255, 184, 0, 0.2); }
-        .timeline-image { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--primary); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px;}
+        .timeline-container { padding: 10px 40px; position: relative; width: 50%; }
+        .timeline-container.left { left: 0; }
+        .timeline-container.right { left: 50%; }
+        .timeline-container::after { content: ''; position: absolute; width: 24px; height: 24px; right: -12px; background-color: var(--white); border: 4px solid var(--primary); top: 20px; border-radius: 50%; z-index: 1; }
+        .timeline-container.right::after { left: -12px; }
+        .timeline-content { padding: 30px; background-color: var(--white); position: relative; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .timeline-content h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 10px; }
+        .timeline-content h4 { color: var(--text-dark); font-size: 1.2rem; margin-bottom: 15px; }
+        .timeline-date { display: inline-block; padding: 5px 15px; background: var(--secondary-light); color: var(--primary-dark); font-weight: bold; border-radius: 50px; margin-bottom: 15px; font-size: 0.9rem;}
         
         .page-hero { background-color: var(--primary); color: white; padding: 100px 0 60px; text-align: center; position: relative;}
         .page-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
         .page-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
 
         @media screen and (max-width: 768px) {
-            .timeline::after { left: 23px; margin-left: 0; width: 2px; }
-            .timeline-container { width: 100%; padding-left: 60px; padding-right: 20px; align-self: flex-start; }
-            .timeline-container.right { align-self: flex-start; padding-left: 60px; }
-            .timeline-container.left::after, .timeline-container.right::after { left: 15px; right: auto; top: 50px; }
+            .timeline::after { left: 31px; }
+            .timeline-container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-container.right { left: 0; }
+            .timeline-container.left::after, .timeline-container.right::after { left: 19px; }
         }
     </style>
 </style>
@@ -1328,7 +1264,6 @@
                 <div class="timeline-container left" data-aos="fade-up">
                     <div class="timeline-content">
                         <div class="timeline-date">Tahun 1990</div>
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop" alt="Sejarah Tahun 1990" class="timeline-image">
                         <h3>Pendirian Yayasan</h3>
                         <p>YPBWI (Yayasan Pendidikan Bakti Wanita Islam) resmi didirikan dengan cita-cita mulia untuk memberikan akses pendidikan yang berkualitas dan berlandaskan ajaran agama Islam.</p>
                     </div>
@@ -1336,7 +1271,6 @@
                 <div class="timeline-container right" data-aos="fade-up">
                     <div class="timeline-content">
                         <div class="timeline-date">Tahun 1995</div>
-                        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=600&auto=format&fit=crop" alt="Sejarah Tahun 1995" class="timeline-image">
                         <h3>TK Islam Bakti Pertama</h3>
                         <p>Pembukaan cabang pertama TK Islam Bakti. Di sinilah langkah awal sistem pendidikan anak usia dini kami diterapkan dengan metode belajar sambil bermain yang islami.</p>
                     </div>
@@ -1344,7 +1278,6 @@
                 <div class="timeline-container left" data-aos="fade-up">
                     <div class="timeline-content">
                         <div class="timeline-date">Tahun 2005</div>
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Sejarah Tahun 2005" class="timeline-image">
                         <h3>Penerapan Kurikulum Terpadu</h3>
                         <p>Memadukan kurikulum nasional dengan pendidikan karakter dan hafalan Al-Quran juz 30, menjadikan TK Islam Bakti sebagai salah satu pelopor pendidikan karakter anak.</p>
                     </div>
@@ -1352,7 +1285,6 @@
                 <div class="timeline-container right" data-aos="fade-up">
                     <div class="timeline-content">
                         <div class="timeline-date">Tahun 2015</div>
-                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="Sejarah Tahun 2015" class="timeline-image">
                         <h3>Ekspansi Cabang</h3>
                         <p>Seiring dengan tingginya kepercayaan masyarakat, yayasan berhasil mendirikan belasan cabang baru di berbagai penjuru kota untuk menjangkau lebih banyak anak-anak.</p>
                     </div>
@@ -1360,7 +1292,6 @@
                 <div class="timeline-container left" data-aos="fade-up">
                     <div class="timeline-content">
                         <div class="timeline-date">Tahun 2026 - Sekarang</div>
-                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=600&auto=format&fit=crop" alt="Sejarah Tahun 2026" class="timeline-image">
                         <h3>16 Cabang Unggulan</h3>
                         <p>Kini YPBWI mengelola 16 cabang TK Islam Bakti yang tersebar luas, dilengkapi fasilitas modern, serta didukung oleh ratusan tenaga pengajar profesional.</p>
                     </div>

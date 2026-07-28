@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabang TK Islam Bakti - YPBWI</title>
+    <title>YPBWI</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,102 +11,1222 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #C34EFD;
-            --primary-light: #d67bff;
-            --primary-dark: #a12ad9;
-            --secondary: #ffb800;
-            --secondary-light: #ffc933;
-            --text-dark: #333333;
-            --text-gray: #666666;
+            --primary: #342781;
+            --primary-light: #4E3E9F;
+            --primary-dark: #211856;
+            --primary-subtle: #F1EFFB;
+            --secondary: #FFB800; /* Gold/yellow */
+            --secondary-light: #FFC933;
+            --secondary-dark: #D99B00;
+            --text-dark: #1A1633;
+            --text-gray: #595570;
             --bg-light: #ffffff;
-            --bg-gray: #f8f9fa;
+            --bg-gray: #f6f5fc;
             --white: #ffffff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Nunito', sans-serif; color: var(--text-dark); background-color: var(--bg-gray); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        /* Header */
-        header { background-color: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 15px 0; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; font-weight: 900; font-size: 1.4rem; color: var(--primary); gap: 10px; }
-        .logo img { height: 40px; border-radius: 50%; }
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { font-weight: 700; transition: color 0.3s; color: var(--text-dark); }
-        .nav-links a:hover { color: var(--primary); }
-
-        /* Hero */
-        .page-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 90px 0 70px; text-align: center; position: relative; }
-        .page-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 15px; }
-        .page-hero p { font-size: 1.2rem; opacity: 0.95; max-width: 650px; margin: 0 auto; }
-
-        /* Filter & Search Bar */
-        .filter-section { margin-top: -35px; position: relative; z-index: 20; }
-        .filter-box { background: white; border-radius: 20px; padding: 20px 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); display: flex; gap: 20px; align-items: center; border: 1px solid rgba(195, 78, 253, 0.1); }
-        .search-input-wrapper { flex: 1; display: flex; align-items: center; background: var(--bg-gray); padding: 12px 20px; border-radius: 12px; gap: 12px; border: 1px solid transparent; transition: all 0.3s; }
-        .search-input-wrapper:focus-within { border-color: var(--primary-light); background: white; box-shadow: 0 0 10px rgba(195, 78, 253, 0.15); }
-        .search-input-wrapper i { color: var(--primary); font-size: 1.1rem; }
-        .search-input-wrapper input { border: none; background: transparent; outline: none; width: 100%; font-family: inherit; font-size: 1rem; font-weight: 600; color: var(--text-dark); }
-
-        /* Cabang Grid */
-        .cabang-section { padding: 60px 0 100px; }
-        .section-header { text-align: center; margin-bottom: 40px; }
-        .section-header h2 { font-size: 2rem; color: var(--primary-dark); font-weight: 800; }
-        .section-header p { color: var(--text-gray); font-size: 1.05rem; }
-
-        .cabang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
-        
-        .cabang-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #eee; transition: all 0.3s ease; display: flex; flex-direction: column; }
-        .cabang-card:hover { transform: translateY(-7px); box-shadow: 0 20px 40px rgba(195, 78, 253, 0.12); border-color: rgba(195, 78, 253, 0.3); }
-
-        .cabang-card-img { position: relative; height: 200px; width: 100%; overflow: hidden; }
-        .cabang-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .cabang-card:hover .cabang-card-img img { transform: scale(1.06); }
-        
-        .cabang-card-badge { position: absolute; top: 15px; right: 15px; background: var(--secondary); color: var(--primary-dark); font-weight: 800; font-size: 0.75rem; padding: 6px 14px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); text-transform: uppercase; letter-spacing: 0.5px; }
-
-        .cabang-card-body { padding: 25px; flex: 1; display: flex; flex-direction: column; }
-        .cabang-card-body h3 { font-size: 1.35rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 8px; }
-        .divider { height: 3px; width: 45px; background: var(--secondary); margin-bottom: 18px; border-radius: 2px; }
-
-        .cabang-card-body p { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 10px; display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; }
-        .cabang-card-body p i { color: var(--primary); margin-top: 3px; font-size: 1rem; width: 16px; text-align: center; }
-
-        .cabang-card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: auto; padding-top: 20px; }
-        .btn-card { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 10px; border-radius: 12px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; }
-        .btn-card.primary { background: var(--primary); color: white; }
-        .btn-card.primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(195, 78, 253, 0.3); }
-        .btn-card.outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
-        .btn-card.outline:hover { background: var(--primary-light); color: white; border-color: var(--primary-light); }
-
-        /* Footer styling */
-        footer { background-color: var(--primary-dark); color: white; padding: 70px 0 20px; margin-top: 60px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; }
-        .footer-brand p { opacity: 0.8; margin-bottom: 20px; font-size: 0.95rem; }
-        .footer-socials { display: flex; gap: 12px; }
-        .footer-socials a { width: 38px; height: 38px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; }
-        .footer-socials a:hover { background: var(--primary); }
-        .footer-col h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; color: var(--secondary); }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { opacity: 0.8; transition: 0.3s; font-weight: 600; }
-        .footer-links a:hover { opacity: 1; color: var(--secondary); padding-left: 5px; }
-        .footer-contact li { display: flex; gap: 12px; margin-bottom: 15px; opacity: 0.85; font-size: 0.95rem; }
-        .footer-contact i { color: var(--secondary); margin-top: 4px; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; opacity: 0.7; font-size: 0.9rem; }
-
-        @media screen and (max-width: 768px) {
-            .page-hero h1 { font-size: 2rem; }
-            .filter-box { flex-direction: column; }
-            .cabang-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Standard mobile menu behavior */
+        html {
+            scroll-behavior: smooth;
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: var(--primary);
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 184, 0, 0.4);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: var(--bg-gray);
+            padding: 80px 0 140px;
+            position: relative;
+            color: var(--text-dark);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1.1;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-welcome {
+            font-family: 'Caveat', cursive, 'Georgia', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-weight: 500;
+            max-width: 90%;
+            line-height: 1.7;
+        }
+
+        .hero-buttons .btn-outline {
+            background-color: white !important;
+            color: var(--primary) !important;
+            border: 2px solid var(--primary-subtle) !important;
+            box-shadow: 0 4px 15px rgba(52, 39, 129, 0.06) !important;
+            font-weight: 600;
+        }
+
+        .hero-buttons .btn-outline:hover {
+            box-shadow: 0 6px 20px rgba(52, 39, 129, 0.12) !important;
+            border-color: var(--primary) !important;
+            transform: translateY(-2px);
+        }
+        
+        .hero-buttons .btn-primary {
+            box-shadow: 0 6px 20px rgba(52, 39, 129, 0.25) !important;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-pure-img {
+            width: 100%;
+            max-width: 540px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            mask-image: linear-gradient(to right, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 95%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 95%);
+        }
+
+        /* Floating card */
+        .hero-floating-card {
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+            background: white;
+            border-radius: 16px;
+            padding: 15px 25px 15px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            animation: float-up-down 4s ease-in-out infinite;
+            z-index: 10;
+        }
+        @keyframes float-up-down {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .hero-floating-card .icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+        .hero-floating-card .info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+        .hero-floating-card .info strong {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+        .hero-floating-card .info span {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            z-index: 5;
+        }
+
+        .hero-wave svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* --- Stats/Features Row --- */
+        .stats-section {
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 80px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(74, 33, 175, 0.15);
+        }
+
+        .stat-icon {
+            width: 65px;
+            height: 65px;
+            background: #f4f0fd;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            color: var(--text-gray);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* --- Tentang Kami --- */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--bg-gray);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .about-images img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-images img:nth-child(2) {
+            margin-top: 40px;
+        }
+
+        .about-text {
+            flex: 1.1;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* --- Cabang TK --- */
+        .branches-section {
+            padding: 100px 0;
+            background-color: var(--bg-gray);
+        }
+
+        .branches-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            align-items: stretch;
+        }
+
+        .branches-map {
+            flex: 1.2;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .branches-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+            display: block;
+        }
+        
+        .branches-map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 800;
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .branches-list {
+            flex: 1;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        /* Custom Scrollbar for branches list */
+        .branches-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .branches-list::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 10px;
+        }
+        .branches-list::-webkit-scrollbar-thumb {
+            background: #c1c1c1; 
+            border-radius: 10px;
+        }
+        .branches-list::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light); 
+        }
+
+        .branch-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eaeaea;
+            transition: all 0.3s;
+        }
+        
+        .branch-item:last-child {
+            border-bottom: none;
+        }
+
+        .branch-item:hover {
+            background: var(--bg-gray);
+            border-radius: 8px;
+        }
+
+        .branch-icon {
+            width: 40px;
+            height: 40px;
+            background: #f4f0fd;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .branch-info {
+            flex: 1;
+        }
+
+        .branch-info h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .branch-info p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        .branch-btn {
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            transition: transform 0.2s;
+        }
+        
+        .branch-btn:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 992px) {
+            .branches-container {
+                flex-direction: column;
+            }
+            .branches-map {
+                height: 300px;
+            }
+            .branches-list {
+                max-height: 400px;
+            }
+        }
+
+        /* --- Program Unggulan --- */
+        .programs-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-top: 10px;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .program-card {
+            background: var(--bg-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid #eaeaea;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+
+        .program-img-wrapper {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .program-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transform: scale(1.05); /* Memperbesar sedikit untuk memotong border putih bawaan gambar jika ada */
+        }
+
+        .program-content {
+            padding: 30px;
+        }
+
+        .program-content h4 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .program-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- Prestasi Update --- */
+        .achievements-section {
+            padding: 100px 0;
+            background-color: var(--bg-gray);
+        }
+
+        .achievements-layout {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .achievements-overview {
+            flex: 1;
+        }
+
+        .achievements-overview h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+
+        .achievements-overview p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .achievement-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .a-stat {
+            background: var(--white);
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .a-stat h4 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .a-stat span {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        .achievements-list-container {
+            flex: 1.2;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        /* Custom Scrollbar */
+        .achievements-list-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .achievements-list-container::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 10px;
+        }
+        .achievements-list-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1; 
+            border-radius: 10px;
+        }
+        .achievements-list-container::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light); 
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .achievements-list li {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px dashed #ddd;
+            transition: all 0.3s;
+        }
+
+        .achievements-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .achievements-list li:first-child {
+            padding-top: 0;
+        }
+
+        .achievements-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .ach-year {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 900;
+            padding: 10px 15px;
+            border-radius: 8px;
+            height: fit-content;
+            font-size: 1.1rem;
+        }
+
+        .ach-content h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .ach-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* --- Agenda --- */
+        .agenda-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .agenda-card {
+            display: flex;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .agenda-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .agenda-date {
+            background: var(--primary);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            min-width: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .agenda-date .day {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .agenda-date .month-year {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .agenda-details {
+            padding: 30px;
+            flex: 1;
+        }
+
+        .agenda-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: rgba(255, 184, 0, 0.15);
+            color: var(--secondary);
+        }
+
+        .agenda-details h4 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .agenda-details p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .agenda-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+        
+        .agenda-meta i {
+            color: var(--secondary);
+            margin-right: 5px;
+        }
+
+        /* --- CTA / Banner --- */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            text-align: center;
+            color: var(--primary-dark);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Berita & Pengumuman --- */
+        .news-section {
+            padding: 100px 0;
+            background-color: var(--bg-gray);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .news-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-date {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-content h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .news-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .read-more i {
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover .read-more i {
+            transform: translateX(5px);
+        }
+
+        /* --- Galeri --- */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-dark);
+            color: #DEDBF7;
+            padding: 80px 0 30px;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr 1fr 2fr 2.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .footer-socials a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .footer-socials a:hover {
+            background: var(--secondary);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-weight: 800;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #DEDBF7;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-contact li {
+            color: #DEDBF7;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            font-weight: 500;
+        }
+        
+        .footer-contact i {
+            margin-top: 4px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .footer-map img {
+            width: 100%;
+            border-radius: 12px;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-map img:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: #DEDBF7;
+        }
+        
+        .footer-bottom-links a {
+            color: #DEDBF7;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 50px 30px;
+            }
+            .footer-col:nth-child(4), .footer-col:nth-child(5) {
+                grid-column: span 1;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content, .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .programs-grid, .news-grid, .agenda-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-text {
+                margin-top: 30px;
+            }
+            .hero-image {
+                margin-top: 40px;
+            }
+            .hero-badge {
+                margin: 0 auto 20px;
+            }
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .achievements-layout {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .programs-grid, .news-grid, .achievements-grid, .agenda-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .about-images {
+                grid-template-columns: 1fr;
+            }
+            .about-images img:nth-child(2) {
+                margin-top: 15px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    
+    <style>
+        .page-hero { background-color: var(--primary); color: white; padding: 100px 0 60px; text-align: center; position: relative;}
+        .page-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
+        .page-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        
+        .cabang-section { padding: 80px 0; background-color: var(--bg-gray); }
+        .cabang-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .cabang-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: transform 0.3s; border: 1px solid #eaeaea; }
+        .cabang-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        
+        .cabang-header { background: var(--primary-light); padding: 20px; color: white; text-align: center; }
+        .cabang-header h3 { font-size: 1.4rem; color: var(--primary-dark); font-weight: 800; }
+        .cabang-body { padding: 25px; }
+        .cabang-body p { margin-bottom: 10px; color: var(--text-gray); display: flex; gap: 10px; align-items: flex-start; }
+        .cabang-body i { color: var(--secondary); margin-top: 4px; }
+        
+        .search-container { max-width: 600px; margin: -30px auto 40px; position: relative; z-index: 10; display: flex; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 50px; overflow: hidden;}
+        .search-input { flex: 1; padding: 20px 30px; border: none; font-size: 1.1rem; outline: none; font-family: inherit;}
+        .search-btn { background: var(--secondary); border: none; padding: 0 30px; color: var(--primary-dark); font-weight: bold; cursor: pointer; transition: background 0.3s;}
+        .search-btn:hover { background: var(--secondary-light); }
     </style>
+</style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div class="container navbar">
             <a href="index.html" class="logo">
@@ -124,312 +1244,194 @@
         </div>
     </header>
 
+
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1 data-aos="fade-up">Daftar Cabang TK Islam Bakti</h1>
-            <p data-aos="fade-up" data-aos-delay="100">16 Cabang TK unggulan yang tersebar di wilayah Surakarta, siap mendidik generasi Islam yang cerdas dan berakhlak mulia.</p>
+            <h1>Jelajahi TK Kami</h1>
+            <p>Temukan 16 cabang TK Islam Bakti yang terdekat dengan lokasi Anda.</p>
         </div>
     </section>
 
-    <!-- Search Section -->
     <div class="container">
-        <div class="filter-section">
-            <div class="filter-box" data-aos="fade-up" data-aos-delay="200">
-                <div class="search-input-wrapper">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="searchInput" placeholder="Cari berdasarkan nama cabang atau alamat (contoh: Bakti 3)...">
-                </div>
-            </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Cari lokasi TK terdekat (Contoh: Banjarsari)...">
+            <button class="search-btn"><i class="fa-solid fa-search"></i> Cari</button>
         </div>
     </div>
 
-    <!-- Cabang Section -->
+    <!-- Cabang Grid -->
     <section class="cabang-section">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Lokasi Cabang Kami</h2>
-                <p>Temukan lokasi dan informasi kontak lengkap cabang TK Islam Bakti di bawah ini</p>
+            <div class="section-header" style="text-align: center;" data-aos="fade-up">
+                <h2>Daftar 16 Cabang TK Islam Bakti</h2>
             </div>
-
-            <div class="cabang-grid" id="cabangGrid">
-
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 1">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 1</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 1, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234501</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+            <div class="cabang-grid">
+                
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 1</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 1, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234501</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 2">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 2</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 2, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234502</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 2</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 2, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234502</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 3">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 3</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 3, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234503</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 3</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 3, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234503</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 4">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 4</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 4, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234504</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 4</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 4, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234504</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 5">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 5</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 5, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234505</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 5</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 5, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234505</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 6">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 6</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 6, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234506</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 6</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 6, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234506</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 7">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 7</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 7, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234507</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 7</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 7, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234507</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 8">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 8</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 8, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234508</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 8</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 8, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234508</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 9">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 9</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 9, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234509</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 9</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 9, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234509</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 10">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 10</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 10, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234510</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 10</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 10, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234510</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 11">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 11</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 11, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234511</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 11</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 11, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234511</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 12">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 12</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 12, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234512</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 12</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 12, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234512</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 13">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 13</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 13, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234513</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 13</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 13, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234513</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 14">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 14</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 14, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234514</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 14</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 14, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234514</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 15">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 15</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 15, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234515</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 15</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 15, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234515</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="cabang-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="cabang-card-img">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="TK Islam Bakti 16">
-                    <span class="cabang-card-badge">Akreditasi A</span>
-                </div>
-                <div class="cabang-card-body">
-                    <h3>TK Islam Bakti 16</h3>
-                    <div class="divider"></div>
-                    <p class="cabang-address"><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 16, Surakarta</p>
-                    <p class="cabang-phone"><i class="fa-solid fa-phone"></i> (0271) 1234516</p>
-                    <p class="cabang-hours"><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
-                    <div class="cabang-card-actions">
-                        <a href="https://maps.google.com" target="_blank" class="btn-card primary"><i class="fa-solid fa-map-location-dot"></i> Lihat Peta</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn-card outline"><i class="fa-brands fa-whatsapp"></i> Hubungi</a>
+                <div class="cabang-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cabang-header">
+                        <h3>TK Islam Bakti 16</h3>
+                    </div>
+                    <div class="cabang-body">
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Contoh Pendidikan No. 16, Surakarta</p>
+                        <p><i class="fa-solid fa-phone"></i> (0271) 1234516</p>
+                        <p><i class="fa-solid fa-clock"></i> Senin - Jumat: 07.30 - 14.00</p>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </section>
-
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -505,32 +1507,14 @@
         </div>
     </footer>
 
-    <!-- AOS JS & Search Logic -->
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 800,
-            once: true
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const cards = document.querySelectorAll('.cabang-card');
-
-            searchInput.addEventListener('input', function() {
-                const query = this.value.toLowerCase().trim();
-                
-                cards.forEach(card => {
-                    const title = card.querySelector('h3').textContent.toLowerCase();
-                    const address = card.querySelector('.cabang-address').textContent.toLowerCase();
-                    
-                    if (title.includes(query) || address.includes(query)) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50,
         });
     </script>
 </body>

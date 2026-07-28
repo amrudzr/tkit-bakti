@@ -3,7 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YPBWI</title>
+    <title>YPBWI - Yayasan Pendidikan Bakti Wanita Islam | TK Islam Bakti Surakarta</title>
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="shortcut icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Yayasan Pendidikan Bakti Wanita Islam (YPBWI) - Membina dan mengembangkan pendidikan anak usia dini Islam berkualitas di 16 cabang TK Islam Bakti Surakarta.">
+    <meta name="keywords" content="YPBWI, TK Islam Bakti, Paud Islam Surakarta, Solo, Pendidikan Anak Usia Dini, Sekolah Islam Solo">
+    <meta name="author" content="YPBWI">
+    <meta name="theme-color" content="#342781">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="YPBWI - Yayasan Pendidikan Bakti Wanita Islam">
+    <meta property="og:description" content="Membina dan mengembangkan pendidikan anak usia dini Islam berkualitas di 16 cabang TK Islam Bakti Surakarta.">
+    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:site_name" content="YPBWI">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="YPBWI - Yayasan Pendidikan Bakti Wanita Islam">
+    <meta name="twitter:description" content="Membina dan mengembangkan pendidikan anak usia dini Islam berkualitas di 16 cabang TK Islam Bakti Surakarta.">
+    <meta name="twitter:image" content="assets/logo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,15 +36,17 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #C34EFD; /* Extracted purple color */
-            --primary-light: #d67bff;
-            --primary-dark: #a12ad9;
-            --secondary: #ffb800; /* Gold/yellow */
-            --secondary-light: #ffc933;
-            --text-dark: #333333;
-            --text-gray: #666666;
+            --primary: #342781;
+            --primary-light: #4E3E9F;
+            --primary-dark: #211856;
+            --primary-subtle: #F1EFFB;
+            --secondary: #FFB800; /* Gold/yellow */
+            --secondary-light: #FFC933;
+            --secondary-dark: #D99B00;
+            --text-dark: #1A1633;
+            --text-gray: #595570;
             --bg-light: #ffffff;
-            --bg-gray: #f5f6fa;
+            --bg-gray: #f6f5fc;
             --white: #ffffff;
         }
 
@@ -159,44 +186,11 @@
 
         /* --- Hero Section --- */
         .hero {
-            background-color: #f6f8fd;
-            padding: 80px 0 160px;
+            background-color: var(--bg-gray);
+            padding: 80px 0 140px;
             position: relative;
             color: var(--text-dark);
             overflow: hidden;
-        }
-
-        .hero-bg-shapes {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .hero-bg-shapes .shape {
-            position: absolute;
-            filter: blur(80px);
-            opacity: 0.6;
-            border-radius: 50%;
-        }
-
-        .hero-bg-shapes .shape-1 {
-            top: -10%; left: -10%;
-            width: 500px; height: 500px;
-            background: rgba(225, 218, 255, 0.8);
-        }
-
-        .hero-bg-shapes .shape-2 {
-            top: 40%; right: -5%;
-            width: 400px; height: 400px;
-            background: rgba(210, 230, 255, 0.7);
-        }
-
-        .hero-bg-shapes .shape-3 {
-            bottom: -20%; left: 30%;
-            width: 600px; height: 300px;
-            background: rgba(253, 240, 255, 0.8);
         }
 
         .hero-content {
@@ -245,73 +239,37 @@
         .hero-buttons .btn-outline {
             background-color: white !important;
             color: var(--primary) !important;
-            border: none !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+            border: 2px solid var(--primary-subtle) !important;
+            box-shadow: 0 4px 15px rgba(52, 39, 129, 0.06) !important;
             font-weight: 600;
         }
 
         .hero-buttons .btn-outline:hover {
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1) !important;
+            box-shadow: 0 6px 20px rgba(52, 39, 129, 0.12) !important;
+            border-color: var(--primary) !important;
             transform: translateY(-2px);
         }
         
         .hero-buttons .btn-primary {
-            box-shadow: 0 6px 20px rgba(195, 78, 253, 0.3) !important;
+            box-shadow: 0 6px 20px rgba(52, 39, 129, 0.25) !important;
         }
 
         .hero-image {
-            flex: 0.9;
+            flex: 1;
             position: relative;
             z-index: 1;
-        }
-
-        .hero-image-bg {
-            position: relative;
-            width: 90%;
-            margin: 0 auto;
-            aspect-ratio: 1 / 1;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            z-index: 1;
-            box-shadow: 0 20px 40px rgba(195, 78, 253, 0.3);
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
-            overflow: hidden;
-            animation: blob-float 8s ease-in-out infinite;
         }
 
-        @keyframes blob-float {
-            0% { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
-            50% { border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%; }
-            100% { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
-        }
-
-        .hero-image-bg img {
-            width: 145%;
-            max-width: 155%;
+        .hero-pure-img {
+            width: 100%;
+            max-width: 520px;
             height: auto;
-            position: relative;
-            z-index: 2;
-            margin-bottom: -45px;
+            display: block;
             object-fit: contain;
-        }
-
-        /* Sparkles */
-        .sparkle-icon {
-            position: absolute;
-            color: #FFD700;
-            animation: pulse-sparkle 2s infinite alternate;
-            z-index: 0;
-        }
-        .sparkle-icon.s1 { top: 10%; left: 10%; font-size: 2rem; color: #a29bfe; }
-        .sparkle-icon.s2 { top: 30%; right: 5%; font-size: 1.2rem; color: #ffeaa7; }
-        .sparkle-icon.s3 { bottom: 20%; left: 0%; font-size: 1.5rem; color: #81ecec; }
-        .sparkle-icon.s4 { top: 15%; right: 40%; font-size: 1.8rem; color: #a29bfe; }
-        
-        @keyframes pulse-sparkle {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 1; }
+            filter: drop-shadow(0 15px 35px rgba(52, 39, 129, 0.12));
         }
 
         /* Floating card */
@@ -501,21 +459,24 @@
         }
 
         .branches-map {
-            flex: 1.2;
+            flex: 1.3;
             position: relative;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(52, 39, 129, 0.12);
+            min-height: 480px;
+            background: #e5e3df;
         }
 
-        .branches-map img {
+        #surakarta-gmaps-iframe {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            min-height: 400px;
+            min-height: 480px;
+            border: 0;
+            border-radius: 16px;
             display: block;
         }
-        
+
         .branches-map-overlay {
             position: absolute;
             top: 20px;
@@ -529,6 +490,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            z-index: 500;
+            pointer-events: none;
         }
 
         .branches-list {
@@ -1082,7 +1045,7 @@
         /* --- Footer --- */
         footer {
             background-color: var(--primary-dark);
-            color: rgba(255,255,255,0.7);
+            color: #DEDBF7;
             padding: 80px 0 30px;
             font-size: 0.95rem;
         }
@@ -1115,7 +1078,7 @@
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.12);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1142,6 +1105,7 @@
         }
 
         .footer-links a {
+            color: #DEDBF7;
             transition: color 0.3s;
             font-weight: 500;
         }
@@ -1151,6 +1115,7 @@
         }
 
         .footer-contact li {
+            color: #DEDBF7;
             margin-bottom: 20px;
             display: flex;
             gap: 15px;
@@ -1176,21 +1141,23 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.15);
             padding-top: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 500;
+            color: #DEDBF7;
         }
         
         .footer-bottom-links a {
+            color: #DEDBF7;
             margin-left: 20px;
             transition: color 0.3s;
         }
         
         .footer-bottom-links a:hover {
-            color: white;
+            color: var(--secondary);
         }
 
         /* Responsive */
@@ -1274,11 +1241,11 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#galeri">Galeri</a></li>
                 <li><a href="#profil">Profil Yayasan</a></li>
                 <li><a href="#peta-persebaran">TK Islam Bakti</a></li>
                 <li><a href="#berita">Berita & Agenda</a></li>
                 <li><a href="#ppdb">PPDB</a></li>
-                <li><a href="#galeri">Galeri</a></li>
             </ul>
             <!-- Login button removed -->
         </div>
@@ -1286,11 +1253,6 @@
 
     <!-- Hero Section -->
     <section id="beranda" class="hero">
-        <div class="hero-bg-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
         <div class="container hero-content">
             <div class="hero-text" data-aos="fade-right">
                 <div class="hero-welcome">Selamat Datang di</div>
@@ -1298,19 +1260,12 @@
                 <p>Membina dan mengembangkan pendidikan anak usia dini Islam yang berkualitas dalam lingkungan yang aman, nyaman dan penuh kasih sayang.</p>
                 
                 <div class="hero-buttons" style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <a href="cabang.html" class="btn btn-primary">Jelajahi TK Kami <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="profil.html" class="btn btn-outline">Profil Yayasan <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#peta-persebaran" class="btn btn-primary">Jelajahi TK Kami <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#profil" class="btn btn-outline">Profil Yayasan <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
-                <i class="fa-solid fa-star sparkle-icon s1"></i>
-                <i class="fa-solid fa-star sparkle-icon s2"></i>
-                <i class="fa-solid fa-star sparkle-icon s3"></i>
-                <i class="fa-solid fa-star sparkle-icon s4"></i>
-                
-                <div class="hero-image-bg">
-                    <img src="assets/hero_kids_nobg.png" alt="Siswa TK Islam Bakti">
-                </div>
+                <img src="assets/hero_kids_nobg.png" alt="Siswa TK Islam Bakti" class="hero-pure-img">
                 
                 <a href="#peta-persebaran" class="hero-floating-card">
                     <div class="icon">
@@ -1325,8 +1280,58 @@
         </div>
         <div class="hero-wave">
             <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <path fill="#f5f6fa" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+                <path fill="#f6f5fc" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
             </svg>
+        </div>
+    </section>
+
+    <!-- Galeri (Section 2) -->
+    <section id="galeri" class="gallery-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">GALERI KAMI</span>
+                <h2>Momen Berharga di Sekolah</h2>
+                <p style="color: var(--text-gray); max-width: 600px; margin: 10px auto 0; font-size: 1.05rem;">Potret keceriaan dan kegiatan belajar mengajar anak didik kami dalam suasana yang islami dan menyenangkan.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 1">
+                    <div class="gallery-overlay">
+                        <h4>Kegiatan Mewarnai</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 2">
+                    <div class="gallery-overlay">
+                        <h4>Bermain di Taman</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 3">
+                    <div class="gallery-overlay">
+                        <h4>Belajar Bersama</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 4">
+                    <div class="gallery-overlay">
+                        <h4>Kegiatan Ekstrakurikuler</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 5">
+                    <div class="gallery-overlay">
+                        <h4>Bakti Sosial</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 6">
+                    <div class="gallery-overlay">
+                        <h4>Acara Perpisahan</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1371,7 +1376,7 @@
                 <p>YPBWI berdedikasi penuh pada penyelenggaraan pendidikan taman kanak-kanak berbasis nilai-nilai Islam. Kami mengintegrasikan kurikulum nasional dengan pendidikan diniyah yang terstruktur.</p>
                 <p>Kami meyakini bahwa usia dini adalah masa *golden age* di mana pondasi iman, akhlak, dan kecerdasan terbentuk. Oleh karena itu, seluruh lingkungan sekolah di bawah naungan kami dirancang untuk ramah anak, inspiratif, dan religius.</p>
                 
-                <a href="sejarah.html" class="btn btn-outline" style="margin-top: 15px;">Pelajari Sejarah Yayasan</a>
+                <a href="#profil" class="btn btn-outline" style="margin-top: 15px;">Pelajari Lebih Lanjut</a>
             </div>
         </div>
     </section>
@@ -1381,86 +1386,151 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-tag">JARINGAN KAMI</span>
-                <h2>Lokasi 16 Cabang TK Islam Bakti</h2>
-                <p style="color: var(--text-gray); max-width: 600px; margin: 10px auto 0; font-size: 1.05rem;">Pilih cabang terdekat dari rumah Anda. Tersebar di berbagai kecamatan di Kota Surakarta untuk kemudahan akses pendidikan berkualitas.</p>
+                <h2>Peta Persebaran 16 Cabang TK Islam Bakti</h2>
+                <p style="color: var(--text-gray); max-width: 600px; margin: 10px auto 0; font-size: 1.05rem;">Klik titik lokasi atau cabang di bawah ini untuk memperbesar lokasi cabang di Kota Surakarta.</p>
             </div>
             
             <div class="branches-container">
                 <div class="branches-map" data-aos="fade-right">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.3387637119!2d110.74797686036128!3d-7.556200257008127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a16627ebc4d93%3A0x4990b76e2792d79d!2sSurakarta%2C%20Surakarta%20City%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0; min-height:400px; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe id="surakarta-gmaps-iframe" src="https://maps.google.com/maps?q=-7.5666,110.8250&hl=id&z=14&output=embed" width="100%" height="100%" style="border:0; min-height:480px; border-radius:16px; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="branches-map-overlay">
-                        <i class="fa-solid fa-map-location-dot"></i> Peta Persebaran Kota Surakarta
+                        <i class="fa-brands fa-google" style="color: #4285F4;"></i> Google Maps Surakarta
                     </div>
                 </div>
                 
                 <div class="branches-list" data-aos="fade-left">
-                    <div class="branch-item">
+                    <div class="branch-item" onclick="focusGoogleMap(1)" style="cursor:pointer;">
                         <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="branch-info">
                             <h4>TK Islam Bakti 1 Laweyan</h4>
-                            <p>Jl. Dr. Radjiman No. 123, Bumi, Laweyan</p>
+                            <p>Jl. Dr. Radjiman No. 123, Laweyan</p>
                         </div>
-                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5685,110.7980" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
                     </div>
-                    <div class="branch-item">
+                    <div class="branch-item" onclick="focusGoogleMap(2)" style="cursor:pointer;">
                         <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="branch-info">
                             <h4>TK Islam Bakti 2 Banjarsari</h4>
                             <p>Jl. Monginsidi No. 45, Banjarsari</p>
                         </div>
-                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5530,110.8190" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
                     </div>
-                    <div class="branch-item">
+                    <div class="branch-item" onclick="focusGoogleMap(3)" style="cursor:pointer;">
                         <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="branch-info">
                             <h4>TK Islam Bakti 3 Jebres</h4>
                             <p>Jl. Ki Hajar Dewantara No. 12, Jebres</p>
                         </div>
-                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5590,110.8490" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
                     </div>
-                    <div class="branch-item">
+                    <div class="branch-item" onclick="focusGoogleMap(4)" style="cursor:pointer;">
                         <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="branch-info">
                             <h4>TK Islam Bakti 4 Pasar Kliwon</h4>
                             <p>Jl. Kapten Mulyadi No. 88, Pasar Kliwon</p>
                         </div>
-                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5780,110.8320" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
                     </div>
-                    <div class="branch-item">
+                    <div class="branch-item" onclick="focusGoogleMap(5)" style="cursor:pointer;">
                         <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="branch-info">
                             <h4>TK Islam Bakti 5 Serengan</h4>
                             <p>Jl. Veteran No. 55, Serengan</p>
                         </div>
-                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5795,110.8120" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
                     </div>
-                    <div class="branch-item">
+                    <div class="branch-item" onclick="focusGoogleMap(6)" style="cursor:pointer;">
                         <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="branch-info">
                             <h4>TK Islam Bakti 6 Pajang</h4>
                             <p>Jl. Slamet Riyadi No. 320, Pajang</p>
                         </div>
-                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5620,110.7850" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
                     </div>
-                    <div class="branch-item">
+                    <div class="branch-item" onclick="focusGoogleMap(7)" style="cursor:pointer;">
                         <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="branch-info">
                             <h4>TK Islam Bakti 7 Manahan</h4>
                             <p>Jl. Adi Sucipto No. 10, Manahan</p>
                         </div>
-                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5510,110.8050" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
                     </div>
-                    <div class="branch-item">
+                    <div class="branch-item" onclick="focusGoogleMap(8)" style="cursor:pointer;">
                         <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="branch-info">
                             <h4>TK Islam Bakti 8 Mojosongo</h4>
                             <p>Jl. Brigjen Katamso No. 44, Mojosongo</p>
                         </div>
-                        <a href="#" class="branch-btn"><i class="fa-solid fa-map"></i> Rute</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5380,110.8420" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
                     </div>
-                    <div style="text-align: center; margin-top: 25px;">
-                        <a href="cabang.html" class="btn btn-outline" style="width: 100%;">Lihat Semua 16 Cabang <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="branch-item" onclick="focusGoogleMap(9)" style="cursor:pointer;">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 9 Kadipiro</h4>
+                            <p>Jl. Sumpah Pemuda No. 18, Kadipiro</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5350,110.8150" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
                     </div>
+                    <div class="branch-item" onclick="focusGoogleMap(10)" style="cursor:pointer;">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 10 Semanggi</h4>
+                            <p>Jl. Kyai Mojo No. 67, Semanggi</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5850,110.8400" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
+                    </div>
+                    <div class="branch-item" onclick="focusGoogleMap(11)" style="cursor:pointer;">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 11 Purwosari</h4>
+                            <p>Jl. Slamet Riyadi No. 210, Purwosari</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5650,110.8010" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
+                    </div>
+                    <div class="branch-item" onclick="focusGoogleMap(12)" style="cursor:pointer;">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 12 Kestalan</h4>
+                            <p>Jl. Piere Tendean No. 15, Kestalan</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5600,110.8250" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
+                    </div>
+                    <div class="branch-item" onclick="focusGoogleMap(13)" style="cursor:pointer;">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 13 Jagalan</h4>
+                            <p>Jl. Sunan Kalijaga No. 30, Jagalan</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5680,110.8430" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
+                    </div>
+                    <div class="branch-item" onclick="focusGoogleMap(14)" style="cursor:pointer;">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 14 Danukusuman</h4>
+                            <p>Jl. Yos Sudarso No. 140, Danukusuman</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5840,110.8200" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
+                    </div>
+                    <div class="branch-item" onclick="focusGoogleMap(15)" style="cursor:pointer;">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 15 Banyuanyar</h4>
+                            <p>Jl. Prof. Soeharso No. 89, Banyuanyar</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5430,110.7950" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
+                    </div>
+                    <div class="branch-item" onclick="focusGoogleMap(16)" style="cursor:pointer;">
+                        <div class="branch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="branch-info">
+                            <h4>TK Islam Bakti 16 Gading</h4>
+                            <p>Jl. Gading Sekaten No. 5, Joyosuran</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.5750,110.8280" target="_blank" class="branch-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-diamond-turn-right"></i> Rute</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
                 </div>
             </div>
         </div>
@@ -1704,55 +1774,7 @@
         </div>
     </section>
 
-    <!-- Galeri -->
-    <section id="galeri" class="gallery-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">GALERI KAMI</span>
-                <h2>Momen Berharga di Sekolah</h2>
-                <p style="color: var(--text-gray); max-width: 600px; margin: 10px auto 0; font-size: 1.05rem;">Potret keceriaan dan kegiatan belajar mengajar anak didik kami dalam suasana yang islami dan menyenangkan.</p>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="0">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 1">
-                    <div class="gallery-overlay">
-                        <h4>Kegiatan Mewarnai</h4>
-                    </div>
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 2">
-                    <div class="gallery-overlay">
-                        <h4>Bermain di Taman</h4>
-                    </div>
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 3">
-                    <div class="gallery-overlay">
-                        <h4>Belajar Bersama</h4>
-                    </div>
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 4">
-                    <div class="gallery-overlay">
-                        <h4>Kegiatan Ekstrakurikuler</h4>
-                    </div>
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 5">
-                    <div class="gallery-overlay">
-                        <h4>Bakti Sosial</h4>
-                    </div>
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 6">
-                    <div class="gallery-overlay">
-                        <h4>Acara Perpisahan</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer>
@@ -1776,12 +1798,12 @@
                 <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
                     <h4>Menu Utama</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="#">Profil Yayasan</a></li>
-                        <li><a href="#">Cabang TK Islam Bakti</a></li>
-                        <li><a href="#">Berita & Pengumuman</a></li>
-                        <li><a href="#">Informasi PPDB</a></li>
-                        <li><a href="#">Galeri Kegiatan</a></li>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#galeri">Galeri Kegiatan</a></li>
+                        <li><a href="#profil">Profil Yayasan</a></li>
+                        <li><a href="#peta-persebaran">Cabang TK Islam Bakti</a></li>
+                        <li><a href="#berita">Berita & Pengumuman</a></li>
+                        <li><a href="#ppdb">Informasi PPDB</a></li>
                     </ul>
                 </div>
 
@@ -1789,9 +1811,9 @@
                 <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
                     <h4>Link Cepat</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Visi & Misi Yayasan</a></li>
-                        <li><a href="#">Struktur Pengurus</a></li>
-                        <li><a href="#">Karir & Lowongan</a></li>
+                        <li><a href="#profil">Visi & Misi Yayasan</a></li>
+                        <li><a href="#profil">Struktur Pengurus</a></li>
+                        <li><a href="#ppdb">Pendaftaran PPDB</a></li>
                     </ul>
                 </div>
 
@@ -1839,6 +1861,36 @@
             once: true,
             offset: 50,
         });
+    </script>
+
+    <!-- Google Maps Interactive Controller Script -->
+    <script>
+        const branchesData = [
+            { id: 1, name: "TK Islam Bakti 1 Laweyan", lat: -7.5685, lng: 110.7980, address: "Jl. Dr. Radjiman No. 123, Laweyan" },
+            { id: 2, name: "TK Islam Bakti 2 Banjarsari", lat: -7.5530, lng: 110.8190, address: "Jl. Monginsidi No. 45, Banjarsari" },
+            { id: 3, name: "TK Islam Bakti 3 Jebres", lat: -7.5590, lng: 110.8490, address: "Jl. Ki Hajar Dewantara No. 12, Jebres" },
+            { id: 4, name: "TK Islam Bakti 4 Pasar Kliwon", lat: -7.5780, lng: 110.8320, address: "Jl. Kapten Mulyadi No. 88, Pasar Kliwon" },
+            { id: 5, name: "TK Islam Bakti 5 Serengan", lat: -7.5795, lng: 110.8120, address: "Jl. Veteran No. 55, Serengan" },
+            { id: 6, name: "TK Islam Bakti 6 Pajang", lat: -7.5620, lng: 110.7850, address: "Jl. Slamet Riyadi No. 320, Pajang" },
+            { id: 7, name: "TK Islam Bakti 7 Manahan", lat: -7.5510, lng: 110.8050, address: "Jl. Adi Sucipto No. 10, Manahan" },
+            { id: 8, name: "TK Islam Bakti 8 Mojosongo", lat: -7.5380, lng: 110.8420, address: "Jl. Brigjen Katamso No. 44, Mojosongo" },
+            { id: 9, name: "TK Islam Bakti 9 Kadipiro", lat: -7.5350, lng: 110.8150, address: "Jl. Sumpah Pemuda No. 18, Kadipiro" },
+            { id: 10, name: "TK Islam Bakti 10 Semanggi", lat: -7.5850, lng: 110.8400, address: "Jl. Kyai Mojo No. 67, Semanggi" },
+            { id: 11, name: "TK Islam Bakti 11 Purwosari", lat: -7.5650, lng: 110.8010, address: "Jl. Slamet Riyadi No. 210, Purwosari" },
+            { id: 12, name: "TK Islam Bakti 12 Kestalan", lat: -7.5600, lng: 110.8250, address: "Jl. Piere Tendean No. 15, Kestalan" },
+            { id: 13, name: "TK Islam Bakti 13 Jagalan", lat: -7.5680, lng: 110.8430, address: "Jl. Sunan Kalijaga No. 30, Jagalan" },
+            { id: 14, name: "TK Islam Bakti 14 Danukusuman", lat: -7.5840, lng: 110.8200, address: "Jl. Yos Sudarso No. 140, Danukusuman" },
+            { id: 15, name: "TK Islam Bakti 15 Banyuanyar", lat: -7.5430, lng: 110.7950, address: "Jl. Prof. Soeharso No. 89, Banyuanyar" },
+            { id: 16, name: "TK Islam Bakti 16 Gading", lat: -7.5750, lng: 110.8280, address: "Jl. Gading Sekaten No. 5, Joyosuran" }
+        ];
+
+        function focusGoogleMap(id) {
+            const branch = branchesData.find(b => b.id === id);
+            const iframe = document.getElementById('surakarta-gmaps-iframe');
+            if (branch && iframe) {
+                iframe.src = `https://maps.google.com/maps?q=${branch.lat},${branch.lng}&hl=id&z=16&output=embed`;
+            }
+        }
     </script>
 </body>
 </html>

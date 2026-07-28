@@ -13,14 +13,14 @@ Aplikasi ini ditujukan untuk tiga audiens utama: Orang Tua, Guru, dan Admin. Ole
 Palet warna didesain untuk ramah anak namun tetap terlihat kredibel bagi administrasi sekolah.
 
 ### Primary Colors
-*   **Soft Ocean Teal (`#0D9488`)**
+*   **Deep Royal Purple (`#342781`)**
     *   *Penggunaan:* Warna merek utama, *call-to-action* (tombol utama), *header*, dan status aktif.
-    *   *Kesan:* Menenangkan, profesional, dan terpercaya.
+    *   *Kesan:* Elegan, islami, profesional, dan terpercaya.
 
 ### Secondary / Accent Colors
-*   **Sunrise Tangerine (`#F97316`)**
-    *   *Penggunaan:* Notifikasi penting, *badges*, tombol aksi sekunder, dan ilustrasi ceria.
-    *   *Kesan:* Hangat, ceria, dan menarik perhatian tanpa terlihat mengancam.
+*   **Warm Gold (`#FFB800`)**
+    *   *Penggunaan:* Notifikasi penting, *badges*, tombol aksi sekunder, dan aksen ceria.
+    *   *Kesan:* Hangat, ceria, berkilau, dan menarik perhatian.
 
 ### Semantic / Feedback Colors
 *   **Mint Success (`#22C55E`)**

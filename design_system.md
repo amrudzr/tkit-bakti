@@ -12,10 +12,10 @@ Dokumen ini merupakan kerangka lengkap (full stack) dari Sistem Desain TKIT. Sis
 Token desain adalah abstraksi dari nilai-nilai visual (merujuk pada `style_guide.md`). Diimplementasikan dalam bentuk variabel CSS atau konfigurasi Tailwind (`tailwind.config.js`).
 
 *   **Colors:** 
-    *   `color-primary`: `#0D9488` (Soft Ocean Teal)
-    *   `color-secondary`: `#F97316` (Sunrise Tangerine)
+    *   `color-primary`: `#342781` (Deep Royal Purple)
+    *   `color-secondary`: `#FFB800` (Warm Gold)
     *   `color-surface`: `#FFFFFF`
-    *   `color-background`: `#F8FAFC`
+    *   `color-background`: `#F6F5FC`
 *   **Spacing:** Skala 4px (misal: `spacing-xs`: 4px, `spacing-md`: 16px, `spacing-xl`: 32px).
 *   **Radii (Border Radius):** 
     *   `radius-base`: 8px (`rounded-lg`) untuk input.
