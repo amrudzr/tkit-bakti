@@ -115,6 +115,23 @@
             object-fit: cover;
         }
 
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: 2px solid var(--secondary-light);
+            color: var(--primary);
+            font-size: 1.3rem;
+            padding: 8px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            background-color: var(--secondary-light);
+            color: var(--primary-dark);
+        }
+
         .nav-links {
             display: flex;
             gap: 30px;
@@ -1160,6 +1177,14 @@
             color: var(--secondary);
         }
 
+        /* Touch device overlay support for Galeri */
+        @media (hover: none) {
+            .gallery-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .footer-grid {
@@ -1172,12 +1197,65 @@
         }
         
         @media (max-width: 992px) {
+            .navbar {
+                position: relative;
+            }
+            .nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .nav-links {
+                position: absolute;
+                top: calc(100% + 15px);
+                left: 0;
+                right: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+                border-radius: 16px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+            .nav-links.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links a {
+                display: block;
+                padding: 10px 0;
+                font-size: 1rem;
+            }
             .hero-content, .about-content {
                 flex-direction: column;
                 text-align: center;
             }
+            .stats-section {
+                margin-top: -60px;
+                padding-bottom: 60px;
+            }
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .gallery-section {
+                padding: 70px 0;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+                margin-top: 30px;
             }
             .programs-grid, .news-grid, .agenda-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1194,19 +1272,53 @@
             .hero-text p {
                 margin: 0 auto 30px;
             }
-        }
-        
-        @media (max-width: 992px) {
             .achievements-layout {
                 flex-direction: column;
             }
         }
+        
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .stats-section {
+                margin-top: -40px;
+                padding-bottom: 50px;
             }
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .stat-card {
+                padding: 20px 12px;
+            }
+            .stat-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+            .stat-card h3 {
+                font-size: 1.5rem;
+            }
+            .stat-card p {
+                font-size: 0.85rem;
+            }
+            .gallery-section {
+                padding: 50px 0;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                margin-top: 25px;
+            }
+            .gallery-item {
+                border-radius: 12px;
+            }
+            .gallery-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+                padding: 12px;
+            }
+            .gallery-overlay h4 {
+                font-size: 0.9rem;
             }
             .programs-grid, .news-grid, .achievements-grid, .agenda-grid {
                 grid-template-columns: 1fr;
@@ -1229,6 +1341,269 @@
                 text-align: center;
             }
         }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 15px 8px;
+            }
+            .stat-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            .stat-card h3 {
+                font-size: 1.3rem;
+            }
+            .stat-card p {
+                font-size: 0.78rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .gallery-overlay {
+                padding: 8px;
+            }
+            .gallery-overlay h4 {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* --- Floating Customer Service & Social Media Widget --- */
+        .floating-sosmed-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+
+        .floating-sosmed-toggle {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(74, 33, 175, 0.4);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .floating-sosmed-toggle::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.5;
+            z-index: -1;
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        .floating-sosmed-toggle:hover {
+            transform: scale(1.08);
+            background: var(--primary-dark);
+        }
+
+        .floating-sosmed-toggle .icon-close {
+            display: none;
+        }
+
+        .floating-sosmed-container.active .floating-sosmed-toggle {
+            transform: rotate(180deg);
+            background: #e74c3c;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .floating-sosmed-container.active .floating-sosmed-toggle::before {
+            animation: none;
+        }
+
+        .floating-sosmed-container.active .floating-sosmed-toggle .icon-main {
+            display: none;
+        }
+
+        .floating-sosmed-container.active .floating-sosmed-toggle .icon-close {
+            display: block;
+        }
+
+        .floating-sosmed-list {
+            position: absolute;
+            bottom: 72px;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(15px) scale(0.9);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .floating-sosmed-container.active .floating-sosmed-list {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        .sosmed-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .sosmed-item:hover {
+            transform: translateX(-5px);
+        }
+
+        .sosmed-label {
+            background: rgba(20, 20, 30, 0.85);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.25s ease;
+            pointer-events: none;
+        }
+
+        .sosmed-item:hover .sosmed-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .sosmed-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .sosmed-btn.wa {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .sosmed-btn.ig {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .sosmed-btn.fb {
+            background: linear-gradient(135deg, #1877F2, #0056b3);
+        }
+
+        .sosmed-btn.yt {
+            background: linear-gradient(135deg, #FF0000, #cc0000);
+        }
+
+        .sosmed-item:hover .sosmed-btn {
+            transform: scale(1.12);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* --- Scroll to Top Button --- */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--secondary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            cursor: pointer;
+            z-index: 9990;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(15px);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .scroll-top-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(74, 33, 175, 0.3);
+        }
+
+        @media (max-width: 576px) {
+            .floating-sosmed-container {
+                bottom: 20px;
+                right: 20px;
+            }
+            .floating-sosmed-toggle {
+                width: 52px;
+                height: 52px;
+                font-size: 1.3rem;
+            }
+            .floating-sosmed-list {
+                bottom: 64px;
+            }
+            .sosmed-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 1.15rem;
+            }
+            .sosmed-label {
+                opacity: 1;
+                transform: translateX(0);
+                font-size: 0.8rem;
+                padding: 4px 10px;
+            }
+            .scroll-top-btn {
+                bottom: 20px;
+                right: 82px;
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1239,7 +1614,10 @@
             <a href="index.html" class="logo">
                 <img src="assets/logo.png" alt="Logo YPBWI"> YPBWI
             </a>
-            <ul class="nav-links">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#beranda">Beranda</a></li>
                 <li><a href="#galeri">Galeri</a></li>
                 <li><a href="#profil">Profil Yayasan</a></li>
@@ -1285,7 +1663,35 @@
         </div>
     </section>
 
-    <!-- Galeri (Section 2) -->
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon"><i class="fa-solid fa-school"></i></div>
+                    <h3>16</h3>
+                    <p>Cabang TK Tersebar</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3>100+</h3>
+                    <p>Guru Berdedikasi</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon"><i class="fa-solid fa-children"></i></div>
+                    <h3>2000+</h3>
+                    <p>Siswa Aktif</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+                    <h3>30+</h3>
+                    <p>Tahun Pengalaman</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri (Section 3) -->
     <section id="galeri" class="gallery-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -1330,34 +1736,6 @@
                     <div class="gallery-overlay">
                         <h4>Acara Perpisahan</h4>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-icon"><i class="fa-solid fa-school"></i></div>
-                    <h3>16</h3>
-                    <p>Cabang TK Tersebar</p>
-                </div>
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
-                    <h3>100+</h3>
-                    <p>Guru Berdedikasi</p>
-                </div>
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-icon"><i class="fa-solid fa-children"></i></div>
-                    <h3>2000+</h3>
-                    <p>Siswa Aktif</p>
-                </div>
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
-                    <h3>30+</h3>
-                    <p>Tahun Pengalaman</p>
                 </div>
             </div>
         </div>
@@ -1852,6 +2230,37 @@
         </div>
     </footer>
 
+    <!-- Floating Social Media Widget -->
+    <div class="floating-sosmed-container" id="floatingSosmed">
+        <div class="floating-sosmed-list">
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="sosmed-item" title="WhatsApp Kami">
+                <span class="sosmed-label">WhatsApp Kami</span>
+                <div class="sosmed-btn wa"><i class="fa-brands fa-whatsapp"></i></div>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="sosmed-item" title="Instagram">
+                <span class="sosmed-label">Instagram</span>
+                <div class="sosmed-btn ig"><i class="fa-brands fa-instagram"></i></div>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="sosmed-item" title="Facebook">
+                <span class="sosmed-label">Facebook</span>
+                <div class="sosmed-btn fb"><i class="fa-brands fa-facebook-f"></i></div>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="sosmed-item" title="YouTube Channel">
+                <span class="sosmed-label">YouTube</span>
+                <div class="sosmed-btn yt"><i class="fa-brands fa-youtube"></i></div>
+            </a>
+        </div>
+        <button class="floating-sosmed-toggle" id="floatingSosmedToggle" aria-label="Sosial Media YPBWI">
+            <i class="fa-solid fa-headset icon-main"></i>
+            <i class="fa-solid fa-xmark icon-close"></i>
+        </button>
+    </div>
+
+    <!-- Scroll To Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Kembali ke Atas" title="Kembali ke Atas">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -1890,6 +2299,84 @@
             if (branch && iframe) {
                 iframe.src = `https://maps.google.com/maps?q=${branch.lat},${branch.lng}&hl=id&z=16&output=embed`;
             }
+        }
+
+        // Mobile Navbar Hamburger Toggle Script
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                const icon = navToggle.querySelector('i');
+                if (icon) {
+                    if (navLinks.classList.contains('active')) {
+                        icon.className = 'fa-solid fa-xmark';
+                    } else {
+                        icon.className = 'fa-solid fa-bars';
+                    }
+                }
+            });
+
+            // Close mobile menu when clicking any nav link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = navToggle.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-bars';
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    const icon = navToggle.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-bars';
+                }
+            });
+        }
+
+        // Floating Sosmed Toggle Script
+        const sosmedContainer = document.getElementById('floatingSosmed');
+        const sosmedToggle = document.getElementById('floatingSosmedToggle');
+        if (sosmedToggle && sosmedContainer) {
+            sosmedToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                sosmedContainer.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!sosmedContainer.contains(e.target)) {
+                    sosmedContainer.classList.remove('active');
+                }
+            });
+        }
+
+        // Scroll To Top Button Script
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        if (scrollTopBtn) {
+            function toggleScrollTopBtn() {
+                const scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                if (scrollPos > 250) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            }
+
+            window.addEventListener('scroll', toggleScrollTopBtn);
+            toggleScrollTopBtn(); // initial check
+
+            scrollTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            });
         }
     </script>
 </body>
